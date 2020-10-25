@@ -6,10 +6,13 @@
 #define ST_AUTOMATICO 1
 #define POSITIVO      0
 #define NEGATIVO      1
+#define PRESIONAR			0
+#define DESPRESIONAR	1
 
 
 
 int posicion = 0;
+char flag = 0;
 
 	void config_servo(void)
 	{
@@ -31,49 +34,47 @@ int posicion = 0;
 	void config_botones(void)
 	{
 		LPC_PINCON->PINSEL4|=(1<<20)|(1<<22)|(1<<24);
-		NVIC_EnableIRQ(EINT0_IRQn);
+		//NVIC_EnableIRQ(EINT0_IRQn);
     NVIC_EnableIRQ(EINT1_IRQn);
     NVIC_EnableIRQ(EINT2_IRQn);
 	}
 	
-	void config_prioridades(void)
-	{
-		NVIC_SetPriority(EINT0_IRQn,8);
-    NVIC_SetPriority(EINT1_IRQn,8);
-    NVIC_SetPriority(EINT2_IRQn,8);
-		NVIC_SetPriority(TIMER0_IRQn,4);		
-	}
-	
 	void EINT1_IRQHandler()
 	{
-		if(!((posicion + 10) > 180))
+		LPC_SC->EXTINT |= (1<<1);		// Borramos flag interrupción
+		
+		if(posicion < 180)
 			set_servo(posicion += 10);
 	}
 	
 	void EINT2_IRQHandler()
 	{
-		if(!((posicion - 10) < 0))
+		LPC_SC->EXTINT |= (1<<2);		// Borramos flag interrupción
+		set_servo(0);
+		
+		if(posicion > 0)
 			set_servo(posicion -= 10);
+	
 	}
-
+	
 	void config_timer05()
 	{
     /*
 			Configuro un timer para que salte cada 0.5 S para que interrumpa
 			y salte el flag.
     */
-    LPC_SC->PCONP|=(1<<1);  						// Alimento Timer 0 
-		LPC_TIM0->PR  =0;	  								// Ponemos el prescaler a 0 
-		LPC_TIM0->MR0 = (Fpclk*0.5-1);
-		LPC_TIM0->MCR = 3; 									// El match interrumpe, deja de contar y se reinicia a 0 el Timer Counter	
+    LPC_SC->PCONP|= (1<<1);  					 // Alimento Timer 0 
+		LPC_TIM0->PR  = 0;	  						 // Ponemos el prescaler a 0 
+		LPC_TIM0->MR0 = (Fpclk*0.5 -1);
+		LPC_TIM0->MCR|= (3<<0); 					// El match interrumpe y se reinicia a 0 el Timer Counter	
 		NVIC_EnableIRQ(TIMER0_IRQn);	
 	}
 	
 	void TIMER0_IRQHandler()
 	{
 		static char sentido = POSITIVO;
-		
-		LPC_TIM0->IR=1<<0;
+		set_servo(180);
+		LPC_TIM0->IR=(1<<0);
 		
 		if(sentido == POSITIVO)
 		{
@@ -81,7 +82,8 @@ int posicion = 0;
 				sentido = NEGATIVO;	
 			
 			else
-				set_servo(posicion += 10);	
+				set_servo(posicion += 10);
+				
 		}
 		
 		else
@@ -97,24 +99,40 @@ int posicion = 0;
 		}
 		
 	}
-
+	
+	void config_prioridades(void)
+	{
+		NVIC_SetPriorityGrouping(0);
+		//NVIC_SetPriority(EINT0_IRQn,8);
+    NVIC_SetPriority(EINT1_IRQn,8);
+    NVIC_SetPriority(EINT2_IRQn,8);
+		NVIC_SetPriority(TIMER0_IRQn,4);		
+	}
+	
 
 	int main(void)
 	{
 		char estado = ST_MANUAL; // Variable de estado
-		
+		int a;
 		// Configuraciones:
 		config_servo();
 		config_botones();
+		config_timer05();
 		config_prioridades();
+		set_servo(90);
+		LPC_SC->EXTINT |= (1<<1);
 		
-		if(ST_MANUAL)
-				// Hacemos cosas manuales
+		while(1)
+		{
+			if(estado == ST_MANUAL)
+					// Hacemos cosas manuales
+				a = 1;
+			
+			else
+				a= 0;
+				// Hacemos cosas automaticas
 		
-		else
-			// Hacemos cosas automaticas
-		
-		
+		}
 		
 	}
 		
