@@ -10,9 +10,10 @@
 #define DESPRESIONAR	1
 
 
-
+char estado = ST_MANUAL; // Variable de estado
 int posicion = 0;
 char flag = 0;
+char bloqueante =0;
 
 	void config_servo(void)
 	{
@@ -22,13 +23,13 @@ char flag = 0;
 		LPC_PWM1->PCR|=(1<<10); //configurado el ENA2 (1.2)
 		LPC_PWM1->MCR|=(1<<1);
 		LPC_PWM1->TCR|=(1<<0)|(1<<3);
-		LPC_PWM1->LER|= (1<<0);
 	}
 	
-	void set_servo(float grados)
+	void set_servo(uint8_t grados)		// Mueve el servo
 	{
-			LPC_PWM1->MR2=(Fpclk*0.4e-3 + Fpclk *2e-3*grados/180); // TH
-			LPC_PWM1->LER|=(1<<2);
+		
+			LPC_PWM1->MR2	 = (Fpclk*0.4e-3 + Fpclk*2e-3*grados/180); // Tiempo en alto
+			LPC_PWM1->LER	|= (1<<2)|(1<<0);														// Load Register
 	}
 
 	void config_botones(void)
@@ -41,63 +42,84 @@ char flag = 0;
 	
 	void EINT1_IRQHandler()
 	{
-		LPC_SC->EXTINT |= (1<<1);		// Borramos flag interrupción
+		int t;
 		
-		if(posicion < 180)
-			set_servo(posicion += 10);
+		if(estado == ST_MANUAL)
+		{
+			LPC_TIM0->TCR  |= (1<<0);		// Habilitamos timer 0
+			LPC_SC->EXTINT |= (1<<1);		// Borramos flag interrupción
+			
+			
+			if((posicion < 180)&(!bloqueante))
+			{
+				set_servo(posicion += 10);
+				bloqueante = 1;
+			}
+			
+		}
 	}
-	
+		
 	void EINT2_IRQHandler()
 	{
 		LPC_SC->EXTINT |= (1<<2);		// Borramos flag interrupción
-		set_servo(0);
+		if(estado == ST_MANUAL)
+		{	
+			if((posicion > 0)&(!bloqueante))
+			{
+				set_servo(posicion -= 10);
+				bloqueante = 1;
+			}
+		}
 		
-		if(posicion > 0)
-			set_servo(posicion -= 10);
-	
 	}
 	
-	void config_timer05()
+	void config_timer_05()
 	{
     /*
 			Configuro un timer para que salte cada 0.5 S para que interrumpa
 			y salte el flag.
     */
-    LPC_SC->PCONP|= (1<<1);  					 // Alimento Timer 0 
-		LPC_TIM0->PR  = 0;	  						 // Ponemos el prescaler a 0 
-		LPC_TIM0->MR0 = (Fpclk*0.5 -1);
+		
+    LPC_SC->PCONP|= (1<<1);  					// Alimento Timer 0 
+		LPC_TIM0->PR  = 0;	  						// Ponemos el prescaler a 0 
 		LPC_TIM0->MCR|= (3<<0); 					// El match interrumpe y se reinicia a 0 el Timer Counter	
+		LPC_TIM0->MR0 = (Fpclk*0.5 -1);
 		NVIC_EnableIRQ(TIMER0_IRQn);	
 	}
 	
 	void TIMER0_IRQHandler()
 	{
 		static char sentido = POSITIVO;
-		set_servo(180);
+		
 		LPC_TIM0->IR=(1<<0);
 		
-		if(sentido == POSITIVO)
+		if(estado == ST_AUTOMATICO)
 		{
-			if((posicion + 10) > 180)
-				sentido = NEGATIVO;	
-			
-			else
-				set_servo(posicion += 10);
-				
-		}
-		
-		else
-		{
-			if((posicion - 10) < 0)
+			if(sentido == POSITIVO)
 			{
-				sentido = POSITIVO;
-				set_servo(posicion += 10);
+				if((posicion + 10) > 180)
+					sentido = NEGATIVO;	
+					
+				
+				else
+					set_servo(posicion += 10);
+					
 			}
 			
 			else
-				set_servo(posicion -= 10);		
+			{
+				if((posicion - 10) < 0)
+				{
+					sentido = POSITIVO;
+					set_servo(posicion += 10);
+				}
+				
+				else
+					set_servo(posicion -= 10);		
+			}
 		}
-		
+		else
+			estado = ST_AUTOMATICO;
 	}
 	
 	void config_prioridades(void)
@@ -109,28 +131,47 @@ char flag = 0;
 		NVIC_SetPriority(TIMER0_IRQn,4);		
 	}
 	
+	void rutina_inicio(void)
+	{
+		int i,t;
+		int grados1 = 0;
+		for(i=0;i<18;i++)
+		{
+			for(t=0;t<10000000;t++); // variar el límite en simulación para ver más rápido la variación de la señal PWM									
+			set_servo(grados1+=10);	 // incrementamos la posición del servo de 10 en 10º	
+		}
+	}
+	
 
 	int main(void)
 	{
-		char estado = ST_MANUAL; // Variable de estado
-		int a;
+		
+		int init = 1;
 		// Configuraciones:
 		config_servo();
+		
+		rutina_inicio();
 		config_botones();
-		config_timer05();
+		
 		config_prioridades();
-		set_servo(90);
-		LPC_SC->EXTINT |= (1<<1);
+		set_servo(0);
+		config_timer_05();
 		
 		while(1)
 		{
 			if(estado == ST_MANUAL)
-					// Hacemos cosas manuales
-				a = 1;
-			
+			{
+				init = 1;
+				LPC_TIM0->TCR &=~ (1<<0);		// Habilitamos timer 0
+			}
 			else
-				a= 0;
+				if(init)
+				{
+					init = 0;
+					LPC_TIM0->TCR   |= (1<<0);				// Habilitamos timer 0
+				}
 				// Hacemos cosas automaticas
+			bloqueante =0;
 		
 		}
 		
