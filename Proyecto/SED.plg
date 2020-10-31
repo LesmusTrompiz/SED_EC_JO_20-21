@@ -4,6 +4,98 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 E:\Github\SED_20-21_JO_EVA\Proyecto\SED.uvproj
-Project File Date:  10/16/2020
+Project File Date:  10/31/2020
 
 <h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+main.c(129): warning:  #550-D: variable "init" was set but never used
+main.c(156): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=4464 RO-data=236 RW-data=12 ZI-data=612  
+".\SED.axf" - 0 Errors, 2 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+main.c(129): warning:  #550-D: variable "init" was set but never used
+main.c(156): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=4468 RO-data=236 RW-data=12 ZI-data=612  
+".\SED.axf" - 0 Errors, 2 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+main.c(129): warning:  #550-D: variable "init" was set but never used
+main.c(156): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=4456 RO-data=236 RW-data=12 ZI-data=612  
+".\SED.axf" - 0 Errors, 2 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+main.c(129): warning:  #550-D: variable "init" was set but never used
+main.c(156): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=4452 RO-data=236 RW-data=12 ZI-data=612  
+".\SED.axf" - 0 Errors, 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+main.c(129): warning:  #550-D: variable "init" was set but never used
+main.c(155): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=4468 RO-data=236 RW-data=12 ZI-data=612  
+".\SED.axf" - 0 Errors, 2 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+linking...
+Program Size: Code=4468 RO-data=236 RW-data=12 ZI-data=612  
+".\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+main.c(155): warning:  #1-D: last line of file ends without a newline
+main.c(130): warning:  #550-D: variable "init" was set but never used
+linking...
+Program Size: Code=4480 RO-data=236 RW-data=12 ZI-data=612  
+".\SED.axf" - 0 Errors, 2 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+main.c(154): warning:  #1-D: last line of file ends without a newline
+main.c(130): warning:  #550-D: variable "init" was set but never used
+linking...
+Program Size: Code=4472 RO-data=236 RW-data=12 ZI-data=612  
+".\SED.axf" - 0 Errors, 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+main.c(154): warning:  #1-D: last line of file ends without a newline
+main.c(130): warning:  #550-D: variable "init" was set but never used
+linking...
+Program Size: Code=4472 RO-data=236 RW-data=12 ZI-data=612  
+".\SED.axf" - 0 Errors, 2 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: Code=4472 RO-data=236 RW-data=12 ZI-data=612  
+".\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
