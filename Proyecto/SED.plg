@@ -9,93 +9,37 @@ Project File Date:  10/31/2020
 <h2>Output:</h2>
 Build target 'Target 1'
 compiling main.c...
-main.c(129): warning:  #550-D: variable "init" was set but never used
-main.c(156): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=4464 RO-data=236 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-main.c(129): warning:  #550-D: variable "init" was set but never used
-main.c(156): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=4468 RO-data=236 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-main.c(129): warning:  #550-D: variable "init" was set but never used
-main.c(156): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=4456 RO-data=236 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-main.c(129): warning:  #550-D: variable "init" was set but never used
-main.c(156): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=4452 RO-data=236 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-main.c(129): warning:  #550-D: variable "init" was set but never used
-main.c(155): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=4468 RO-data=236 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-linking...
-Program Size: Code=4468 RO-data=236 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 0 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-main.c(155): warning:  #1-D: last line of file ends without a newline
-main.c(130): warning:  #550-D: variable "init" was set but never used
-linking...
-Program Size: Code=4480 RO-data=236 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-main.c(154): warning:  #1-D: last line of file ends without a newline
-main.c(130): warning:  #550-D: variable "init" was set but never used
+main.c(160): warning:  #1-D: last line of file ends without a newline
+main.c(136): warning:  #550-D: variable "init" was set but never used
 linking...
 Program Size: Code=4472 RO-data=236 RW-data=12 ZI-data=612  
 ".\SED.axf" - 0 Errors, 2 Warning(s).
 Build target 'Target 1'
 compiling main.c...
-main.c(154): warning:  #1-D: last line of file ends without a newline
-main.c(130): warning:  #550-D: variable "init" was set but never used
-linking...
-Program Size: Code=4472 RO-data=236 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 2 Warning(s).
+main.c(142): warning:  #1-D: last line of file ends without a newline
+compiling servo.c...
+servo.c(6): error:  #20: identifier "LPC_PINCON" is undefined
+servo.c(7): error:  #20: identifier "LPC_SC" is undefined
+servo.c(8): error:  #20: identifier "LPC_PWM1" is undefined
+servo.c(8): error:  #20: identifier "Fpclk" is undefined
+servo.c(8): error:  #20: identifier "Tpwm" is undefined
+servo.c(17): error:  #20: identifier "LPC_PWM1" is undefined
+servo.c(17): error:  #20: identifier "Fpclk" is undefined
+".\SED.axf" - 7 Errors, 1 Warning(s).
+Target not created
 Build target 'Target 1'
+compiling main.c...
+main.c(143): warning:  #1-D: last line of file ends without a newline
+compiling servo.c...
+servo.c(8): error:  #20: identifier "Fpclk" is undefined
+servo.c(8): error:  #20: identifier "Tpwm" is undefined
+servo.c(17): error:  #20: identifier "Fpclk" is undefined
+".\SED.axf" - 3 Errors, 1 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling main.c...
+main.c(141): warning:  #1-D: last line of file ends without a newline
+compiling servo.c...
 linking...
-Program Size: Code=4472 RO-data=236 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 0 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
+Program Size: Code=4460 RO-data=248 RW-data=12 ZI-data=612  
+".\SED.axf" - 0 Errors, 1 Warning(s).
