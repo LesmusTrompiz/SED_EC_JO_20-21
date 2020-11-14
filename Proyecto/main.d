@@ -6,3 +6,6 @@
 .\main.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmFunc.h
 .\main.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
 .\main.o: servo.h
+.\main.o: ultrasonidos.h
+.\main.o: GLCD/GLCD.h
+.\main.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdio.h

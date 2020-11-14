@@ -422,6 +422,11 @@
               <FileType>1</FileType>
               <FilePath>.\servo.c</FilePath>
             </File>
+            <File>
+              <FileName>GLCD.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\GLCD\GLCD.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
