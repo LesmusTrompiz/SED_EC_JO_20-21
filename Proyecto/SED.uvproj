@@ -433,9 +433,9 @@
               <FilePath>.\GLCD\AsciiLib.c</FilePath>
             </File>
             <File>
-              <FileName>ultrasonidos.c</FileName>
+              <FileName>UTS.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\ultrasonidos.c</FilePath>
+              <FilePath>.\UTS.c</FilePath>
             </File>
           </Files>
         </Group>
