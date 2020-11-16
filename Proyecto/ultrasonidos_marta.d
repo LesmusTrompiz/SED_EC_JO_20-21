@@ -1,0 +1,10 @@
+.\ultrasonidos_marta.o: ultrasonidos_marta.c
+.\ultrasonidos_marta.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.H
+.\ultrasonidos_marta.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cm3.h
+.\ultrasonidos_marta.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\ultrasonidos_marta.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmInstr.h
+.\ultrasonidos_marta.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmFunc.h
+.\ultrasonidos_marta.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\ultrasonidos_marta.o: ultrasonidos_marta.h
+.\ultrasonidos_marta.o: GLCD/GLCD.h
+.\ultrasonidos_marta.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdio.h

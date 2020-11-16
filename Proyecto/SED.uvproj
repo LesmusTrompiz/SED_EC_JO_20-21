@@ -117,7 +117,7 @@
             <Oh166RecLen>16</Oh166RecLen>
           </OPTHX>
           <Simulator>
-            <UseSimulator>1</UseSimulator>
+            <UseSimulator>0</UseSimulator>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -128,7 +128,7 @@
             <LimitSpeedToRealTime>0</LimitSpeedToRealTime>
           </Simulator>
           <Target>
-            <UseTarget>0</UseTarget>
+            <UseTarget>1</UseTarget>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>0</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -162,12 +162,12 @@
             <UseExternalTool>0</UseExternalTool>
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
-            <Capability>0</Capability>
-            <DriverSelection>-1</DriverSelection>
+            <Capability>1</Capability>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
         </Utilities>
         <TargetArmAds>
@@ -421,6 +421,21 @@
               <FileName>servo.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\servo.c</FilePath>
+            </File>
+            <File>
+              <FileName>GLCD.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\GLCD\GLCD.c</FilePath>
+            </File>
+            <File>
+              <FileName>AsciiLib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\GLCD\AsciiLib.c</FilePath>
+            </File>
+            <File>
+              <FileName>UTS.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\UTS.c</FilePath>
             </File>
           </Files>
         </Group>
