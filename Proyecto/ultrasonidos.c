@@ -7,18 +7,15 @@ void config_UTS(void)
 	LPC_TIM3->PR=0;	  //Ponemos el prescaler a 0 
 	LPC_TIM3->MR0=(Fpclk*TH_UTS-1);
 	LPC_TIM3->MCR=7; //El match interrumpe, deja de contar y se reinicia a 0 el Timer Counter	
-	LPC_SC->PCONP       |= (1<<23); 		// Alimentamos el TIMER3
 	LPC_PINCON->PINSEL1 |= (3<<14);			// Selecciono CAP3.0	P0.23
-	LPC_PINCON->PINSEL1 |= (3<<16);			// Selecciono CAP3.1 P0.24
 	NVIC_EnableIRQ(TIMER3_IRQn);	
 }
 
 void UTS_trigger(void)
 {
 	LPC_GPIO1->FIODIR|=1<<25;
-  LPC_TIM3->TCR=1<<0;             
-  LPC_GPIO1->FIOSET|=1<<25;       // Pongo el pin a 1   
-	
+  	LPC_TIM3->TCR=1<<0;             
+  	LPC_GPIO1->FIOSET|=1<<25;       // Pongo el pin a 1   
 }
 
 void TIMER3_IRQHandler(void)

@@ -1,6 +1,6 @@
 #include <LPC17xx.H>
 #include "servo.h"
-#include "ultrasonidos.h"
+#include "UTS.h"
 #include "GLCD/GLCD.h"
 #include "stdio.h"
 
@@ -9,7 +9,6 @@
 #define ST_SETUP      0
 #define ST_MANUAL     1
 #define ST_AUTOMATICO 2
-
 
 #define POSITIVO      0
 #define NEGATIVO      1
@@ -98,7 +97,7 @@ float distancia = 0;
 		LPC_TIM0->PR   = 0;	  								// Ponemos el prescaler a 0 
 		LPC_TIM0->MR0  = (Fpclk*0.5-1);
 		LPC_TIM0->MCR  = 3; 								// El match interrumpe, deja de contar y se reinicia a 0 el Timer Counter	
-		LPC_TIM0->TCR |= (1<<0);				  			// Habilitamos timer 0
+		LPC_TIM0->TCR |= (1<<0);				  			// Que empiece a contar timer 0
 		NVIC_EnableIRQ(TIMER0_IRQn);				
 	}
 	
@@ -165,22 +164,9 @@ float distancia = 0;
 		GUI_Text(10,20,(uint8_t *)"Hola",Cyan,Black);
 		
 		while(1)
-		{
 			flag_bloqueante = 0;
-			/*
-			switch (estado)
-			{
-				case(ST_MANUAL):			
-					// Hacemos cosas manuales
-					flag_bloqueante = 0;
-				
-				case(ST_AUTOMATICO):
-					// Hacemos cosas automaticas
-					flag_bloqueante = 0;
-					
-			}
-			*/
-		}
+		
+		
 	}	
 
 	

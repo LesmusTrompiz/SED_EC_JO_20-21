@@ -4,414 +4,145 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 E:\Github\SED_20-21_JO_EVA\Proyecto\SED.uvproj
-Project File Date:  11/12/2020
+Project File Date:  11/15/2020
 
 <h2>Output:</h2>
 Build target 'Target 1'
-compiling GLCD.c...
-GLCD\GLCD.h(96): warning:  #1-D: last line of file ends without a newline
-GLCD\GLCD.c(605): warning:  #1-D: last line of file ends without a newline
-linking...
-.\SED.axf: Error: L6218E: Undefined symbol GetASCIICode (referred from glcd.o).
-".\SED.axf" - 1 Errors, 2 Warning(s).
+compiling main.c...
+UTS.h(16): warning:  #1-D: last line of file ends without a newline
+main.c(185): warning:  #1-D: last line of file ends without a newline
+compiling UTS.c...
+UTS.H(16): warning:  #1-D: last line of file ends without a newline
+UTS.c(63): error:  #65: expected a ";"
+".\SED.axf" - 1 Errors, 3 Warning(s).
 Target not created
 Build target 'Target 1'
-compiling main.c...
-GLCD/GLCD.h(96): warning:  #1-D: last line of file ends without a newline
-main.c(144): warning:  #1-D: last line of file ends without a newline
-compiling GLCD.c...
-GLCD\GLCD.h(96): warning:  #1-D: last line of file ends without a newline
-GLCD\GLCD.c(605): warning:  #1-D: last line of file ends without a newline
+compiling UTS.c...
+UTS.H(16): warning:  #1-D: last line of file ends without a newline
 linking...
-.\SED.axf: Error: L6218E: Undefined symbol GetASCIICode (referred from glcd.o).
-".\SED.axf" - 1 Errors, 4 Warning(s).
-Target not created
+Program Size: Code=22242 RO-data=1934 RW-data=24 ZI-data=608  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
 Build target 'Target 1'
-compiling AsciiLib.c...
+compiling UTS.c...
+UTS.H(16): warning:  #1-D: last line of file ends without a newline
 linking...
-Program Size: Code=17068 RO-data=1756 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 0 Warning(s).
-Build target 'Target 1'
-compiling AsciiLib.c...
-linking...
-Program Size: Code=17068 RO-data=1756 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 0 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: Code=17068 RO-data=1756 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 0 Warning(s).
-compiling main.c...
-GLCD/GLCD.h(96): warning:  #1-D: last line of file ends without a newline
-main.c(144): warning:  #1-D: last line of file ends without a newline
-"main.c" - 0 Errors, 2 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-main.c(145): warning:  #1-D: last line of file ends without a newline
-compiling GLCD.c...
-GLCD\GLCD.c(605): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=17068 RO-data=1756 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: Code=17068 RO-data=1756 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 0 Warning(s).
+Program Size: Code=22242 RO-data=1934 RW-data=24 ZI-data=608  
+".\SED.axf" - 0 Errors, 1 Warning(s).
 Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
 Erase Done.
 Programming Done.
 Verify OK.
 Build target 'Target 1'
 compiling main.c...
-main.c(145): warning:  #1-D: last line of file ends without a newline
+UTS.h(16): warning:  #1-D: last line of file ends without a newline
+main.c(185): warning:  #1-D: last line of file ends without a newline
+compiling UTS.c...
+UTS.H(16): warning:  #1-D: last line of file ends without a newline
 linking...
-Program Size: Code=17072 RO-data=1756 RW-data=12 ZI-data=612  
+Program Size: Code=22242 RO-data=1934 RW-data=24 ZI-data=608  
+".\SED.axf" - 0 Errors, 3 Warning(s).
+Build target 'Target 1'
+compiling UTS.c...
+UTS.H(16): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=22238 RO-data=1934 RW-data=24 ZI-data=608  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling UTS.c...
+UTS.H(16): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=22238 RO-data=1934 RW-data=24 ZI-data=608  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling UTS.c...
+UTS.H(16): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=22242 RO-data=1934 RW-data=24 ZI-data=608  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling UTS.c...
+UTS.H(16): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=22242 RO-data=1934 RW-data=24 ZI-data=608  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling UTS.c...
+UTS.H(16): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=22242 RO-data=1934 RW-data=24 ZI-data=608  
 ".\SED.axf" - 0 Errors, 1 Warning(s).
 Build target 'Target 1'
+compiling UTS.c...
+UTS.H(16): warning:  #1-D: last line of file ends without a newline
 linking...
-Program Size: Code=17072 RO-data=1756 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 0 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-main.c(121): warning:  #223-D: function "LCD_Initializtion" declared implicitly
-main.c(145): warning:  #1-D: last line of file ends without a newline
-compiling GLCD.c...
-linking...
-.\SED.axf: Error: L6218E: Undefined symbol LCD_Initializtion (referred from main.o).
-".\SED.axf" - 1 Errors, 2 Warning(s).
-Target not created
-Build target 'Target 1'
-compiling main.c...
-main.c(145): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=17072 RO-data=1756 RW-data=12 ZI-data=612  
+Program Size: Code=22254 RO-data=1934 RW-data=24 ZI-data=608  
 ".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
 Build target 'Target 1'
-compiling main.c...
-main.c(146): warning:  #1-D: last line of file ends without a newline
+compiling UTS.c...
+UTS.H(16): warning:  #1-D: last line of file ends without a newline
 linking...
-Program Size: Code=17072 RO-data=1756 RW-data=12 ZI-data=612  
+Program Size: Code=22238 RO-data=1934 RW-data=24 ZI-data=608  
 ".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
 Build target 'Target 1'
 linking...
-Program Size: Code=17072 RO-data=1756 RW-data=12 ZI-data=612  
+Program Size: Code=22238 RO-data=1934 RW-data=24 ZI-data=608  
 ".\SED.axf" - 0 Errors, 0 Warning(s).
 Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
 Erase Done.
 Programming Done.
 Verify OK.
 Build target 'Target 1'
-compiling main.c...
-main.c(115): warning:  #177-D: variable "msg" was declared but never referenced
-main.c(146): warning:  #1-D: last line of file ends without a newline
+compiling UTS.c...
+UTS.H(16): warning:  #1-D: last line of file ends without a newline
 linking...
-Program Size: Code=16924 RO-data=1756 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 2 Warning(s).
+Program Size: Code=22250 RO-data=1934 RW-data=24 ZI-data=608  
+".\SED.axf" - 0 Errors, 1 Warning(s).
 Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
 Erase Done.
 Programming Done.
 Verify OK.
 Build target 'Target 1'
-compiling main.c...
-main.c(115): warning:  #177-D: variable "msg" was declared but never referenced
-main.c(146): warning:  #1-D: last line of file ends without a newline
 linking...
-Program Size: Code=16924 RO-data=1756 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-main.c(115): warning:  #177-D: variable "msg" was declared but never referenced
-main.c(146): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=16924 RO-data=1756 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-main.c(115): warning:  #177-D: variable "msg" was declared but never referenced
-main.c(146): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=16924 RO-data=1756 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-main.c(115): warning:  #177-D: variable "msg" was declared but never referenced
-main.c(147): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=16932 RO-data=1756 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-main.c(115): warning:  #177-D: variable "msg" was declared but never referenced
-main.c(147): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=16932 RO-data=1756 RW-data=12 ZI-data=612  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-ultrasonidos.h(14): warning:  #1-D: last line of file ends without a newline
-main.c(144): warning:  #177-D: variable "msg" was declared but never referenced
-main.c(177): warning:  #1-D: last line of file ends without a newline
-linking...
-.\SED.axf: Error: L6218E: Undefined symbol UTS_trigger (referred from main.o).
-.\SED.axf: Error: L6218E: Undefined symbol config_UTS (referred from main.o).
-".\SED.axf" - 2 Errors, 3 Warning(s).
-Target not created
-Build target 'Target 1'
-compiling ultrasonidos.c...
-ultrasonidos.h(14): warning:  #1-D: last line of file ends without a newline
-ultrasonidos.c(54): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=17498 RO-data=1758 RW-data=24 ZI-data=608  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-ultrasonidos.h(14): warning:  #1-D: last line of file ends without a newline
-main.c(144): warning:  #177-D: variable "msg" was declared but never referenced
-main.c(177): warning:  #1-D: last line of file ends without a newline
-compiling ultrasonidos.c...
-ultrasonidos.h(14): warning:  #1-D: last line of file ends without a newline
-ultrasonidos.c(54): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=17490 RO-data=1758 RW-data=24 ZI-data=608  
-".\SED.axf" - 0 Errors, 5 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-ultrasonidos.h(14): warning:  #1-D: last line of file ends without a newline
-main.c(144): warning:  #177-D: variable "msg" was declared but never referenced
-main.c(177): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=17498 RO-data=1758 RW-data=24 ZI-data=608  
-".\SED.axf" - 0 Errors, 3 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-ultrasonidos.h(14): warning:  #1-D: last line of file ends without a newline
-main.c(144): warning:  #177-D: variable "msg" was declared but never referenced
-main.c(177): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=17498 RO-data=1758 RW-data=24 ZI-data=608  
-".\SED.axf" - 0 Errors, 3 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-ultrasonidos.h(14): warning:  #1-D: last line of file ends without a newline
-main.c(148): warning:  #177-D: variable "msg" was declared but never referenced
-main.c(181): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=17510 RO-data=1758 RW-data=24 ZI-data=608  
-".\SED.axf" - 0 Errors, 3 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-ultrasonidos.h(14): warning:  #1-D: last line of file ends without a newline
-main.c(164): error:  #65: expected a ";"
-main.c(186): warning:  #1-D: last line of file ends without a newline
-compiling ultrasonidos.c...
-ultrasonidos.h(14): warning:  #1-D: last line of file ends without a newline
-ultrasonidos.c(51): warning:  #1-D: last line of file ends without a newline
-".\SED.axf" - 1 Errors, 4 Warning(s).
-Target not created
-Build target 'Target 1'
-compiling main.c...
-ultrasonidos.h(14): warning:  #1-D: last line of file ends without a newline
-main.c(186): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=21510 RO-data=1934 RW-data=24 ZI-data=608  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-ultrasonidos.h(14): warning:  #1-D: last line of file ends without a newline
-main.c(186): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=21514 RO-data=1934 RW-data=24 ZI-data=608  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: Code=21514 RO-data=1934 RW-data=24 ZI-data=608  
+Program Size: Code=22250 RO-data=1934 RW-data=24 ZI-data=608  
 ".\SED.axf" - 0 Errors, 0 Warning(s).
 Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
 Erase Done.
 Programming Done.
 Verify OK.
 Build target 'Target 1'
-compiling main.c...
-ultrasonidos.h(14): warning:  #1-D: last line of file ends without a newline
-main.c(186): warning:  #1-D: last line of file ends without a newline
+compiling UTS.c...
+UTS.H(16): warning:  #1-D: last line of file ends without a newline
 linking...
-Program Size: Code=21778 RO-data=1934 RW-data=24 ZI-data=608  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-ultrasonidos.h(17): warning:  #1-D: last line of file ends without a newline
-main.c(186): warning:  #1-D: last line of file ends without a newline
-compiling ultrasonidos.c...
-ultrasonidos.h(17): warning:  #1-D: last line of file ends without a newline
-ultrasonidos.c(49): warning:  #223-D: function "sprintf" declared implicitly
-ultrasonidos.c(53): warning:  #1-D: last line of file ends without a newline
-linking...
-.\SED.axf: Error: L6218E: Undefined symbol msg (referred from ultrasonidos.o).
-".\SED.axf" - 1 Errors, 5 Warning(s).
-Target not created
-Build target 'Target 1'
-compiling main.c...
-ultrasonidos.h(18): warning:  #1-D: last line of file ends without a newline
-main.c(186): warning:  #1-D: last line of file ends without a newline
-compiling ultrasonidos.c...
-ultrasonidos.h(18): warning:  #1-D: last line of file ends without a newline
-ultrasonidos.c(49): error:  #167: argument of type "char" is incompatible with parameter of type "char *restrict"
-ultrasonidos.c(53): warning:  #1-D: last line of file ends without a newline
-".\SED.axf" - 1 Errors, 4 Warning(s).
-Target not created
-Build target 'Target 1'
-compiling main.c...
-ultrasonidos.h(18): warning:  #1-D: last line of file ends without a newline
-main.c(186): warning:  #1-D: last line of file ends without a newline
-compiling ultrasonidos.c...
-ultrasonidos.h(18): warning:  #1-D: last line of file ends without a newline
-ultrasonidos.c(53): warning:  #1-D: last line of file ends without a newline
-linking...
-.\SED.axf: Error: L6218E: Undefined symbol msg (referred from ultrasonidos.o).
-".\SED.axf" - 1 Errors, 4 Warning(s).
-Target not created
-Build target 'Target 1'
-compiling main.c...
-ultrasonidos.h(18): warning:  #1-D: last line of file ends without a newline
-main.c(186): warning:  #1-D: last line of file ends without a newline
-compiling ultrasonidos.c...
-ultrasonidos.h(18): warning:  #1-D: last line of file ends without a newline
-ultrasonidos.c(53): warning:  #1-D: last line of file ends without a newline
-linking...
-.\SED.axf: Error: L6218E: Undefined symbol msg (referred from ultrasonidos.o).
-".\SED.axf" - 1 Errors, 4 Warning(s).
-Target not created
-compiling ultrasonidos.c...
-ultrasonidos.h(18): warning:  #1-D: last line of file ends without a newline
-ultrasonidos.c(53): warning:  #1-D: last line of file ends without a newline
-"ultrasonidos.c" - 0 Errors, 2 Warning(s).
-Build target 'Target 1'
-linking...
-.\SED.axf: Error: L6218E: Undefined symbol msg (referred from ultrasonidos.o).
-".\SED.axf" - 1 Errors, 0 Warning(s).
-Target not created
-Build target 'Target 1'
-compiling main.c...
-ultrasonidos.h(18): warning:  #1-D: last line of file ends without a newline
-main.c(186): warning:  #1-D: last line of file ends without a newline
-compiling ultrasonidos.c...
-ultrasonidos.h(18): warning:  #1-D: last line of file ends without a newline
-ultrasonidos.c(49): error:  #167: argument of type "char" is incompatible with parameter of type "char *restrict"
-ultrasonidos.c(53): warning:  #1-D: last line of file ends without a newline
-".\SED.axf" - 1 Errors, 4 Warning(s).
-Target not created
-Build target 'Target 1'
-compiling main.c...
-ultrasonidos.h(17): warning:  #1-D: last line of file ends without a newline
-main.c(186): warning:  #1-D: last line of file ends without a newline
-compiling ultrasonidos.c...
-ultrasonidos.h(17): warning:  #1-D: last line of file ends without a newline
-ultrasonidos.c(54): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=21850 RO-data=1934 RW-data=24 ZI-data=608  
-".\SED.axf" - 0 Errors, 4 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling ultrasonidos.c...
-ultrasonidos.h(17): warning:  #1-D: last line of file ends without a newline
-ultrasonidos.c(54): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=21850 RO-data=1934 RW-data=24 ZI-data=608  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: Code=21850 RO-data=1934 RW-data=24 ZI-data=608  
-".\SED.axf" - 0 Errors, 0 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling ultrasonidos.c...
-ultrasonidos.h(17): warning:  #1-D: last line of file ends without a newline
-ultrasonidos.c(56): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=21874 RO-data=1934 RW-data=24 ZI-data=608  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling main.c...
-ultrasonidos.h(17): warning:  #1-D: last line of file ends without a newline
-main.c(186): warning:  #1-D: last line of file ends without a newline
-compiling ultrasonidos.c...
-ultrasonidos.h(17): warning:  #1-D: last line of file ends without a newline
-ultrasonidos.c(57): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=21874 RO-data=1934 RW-data=24 ZI-data=608  
-".\SED.axf" - 0 Errors, 4 Warning(s).
-Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Target 1'
-compiling ultrasonidos.c...
-ultrasonidos.h(17): warning:  #1-D: last line of file ends without a newline
-ultrasonidos.c(58): warning:  #1-D: last line of file ends without a newline
-linking...
-Program Size: Code=21890 RO-data=1934 RW-data=24 ZI-data=608  
-".\SED.axf" - 0 Errors, 2 Warning(s).
+Program Size: Code=22258 RO-data=1934 RW-data=24 ZI-data=608  
+".\SED.axf" - 0 Errors, 1 Warning(s).
 Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
 Erase Done.
 Programming Done.
