@@ -3,13 +3,13 @@
 #include "UTS.h"
 #include "GLCD/GLCD.h"
 #include "stdio.h"
-
+#include "dac.h"
 
 
 #define ST_SETUP      0
 #define ST_MANUAL     1
 #define ST_AUTOMATICO 2
-
+#define N_MUESTRAS    32    
 #define POSITIVO      0
 #define NEGATIVO      1
 
@@ -17,10 +17,14 @@
 // La lista de la verguenza 
 int  posicion = 0;
 char flag_bloqueante = 0;
-char estado = ST_SETUP; 									// Variable de estado
+char estado = ST_SETUP; 				// Variable de estado
 char movimiento = 1;
 char mediciones = 0;
 float distancia = 0;
+uint16_t muestras[N_MUESTRAS];  // Array que contiene al seno 
+
+generar_muestras(void); 
+
 
 void config_botones(void)
 {
@@ -96,8 +100,8 @@ void config_timer05()
   LPC_SC->PCONP |=(1<<1);  							// Alimento Timer 0 
   LPC_TIM0->PR   = 0;	  								// Ponemos el prescaler a 0 
   LPC_TIM0->MR0  = (Fpclk*0.5-1);
-  LPC_TIM0->MCR  = 3; 								// El match interrumpe, deja de contar y se reinicia a 0 el Timer Counter	
-  LPC_TIM0->TCR |= (1<<0);				  			// Que empiece a contar timer 0
+  LPC_TIM0->MCR  = 3; 								  // El match interrumpe, deja de contar y se reinicia a 0 el Timer Counter	
+  LPC_TIM0->TCR |= (1<<0);				  		// Que empiece a contar timer 0
   NVIC_EnableIRQ(TIMER0_IRQn);				
 }
 

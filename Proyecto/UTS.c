@@ -79,6 +79,21 @@ void TIMER3_IRQHandler(void)
     LPC_TIM3->CCR  =(1<<2)|(1<<0);                // Interrumpe en flanco de subida.
     inicio = 0;
     
+    // Cambio la frecuencia de pitido
+    if(distancia <= UMBRAL)
+    {  
+      LPC_TIM1->MR0  = Fpclk/(5000 - UMBRAL *10)/N_MUESTRAS -1;
+      LPC_TIM1->TCR|=(1<<1);
+      LPC_TIM1->TCR &=~(1<<1);                       // Quitamos el bit del reset
+      LPC_TIM1->TCR|=(1<<0);                         // Habilitamos el timer
+    }
+    
+    else
+    {
+      LPC_TIM1->TCR &=~(1<<0);                       // Timer up
+      LPC_TIM1->TCR|=(1<<1);                         // Reset
+    }
+  
     // Pongo la medida en pantalla
     sprintf(msg, "Distancia medida =  %3.2f",distancia);
 		GUI_Text(20,40,(uint8_t *)msg,White,Black);
