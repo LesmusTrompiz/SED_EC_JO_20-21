@@ -4,38 +4,328 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 E:\Github\SED_20-21_JO_EVA\Proyecto\SED.uvproj
-Project File Date:  11/16/2020
+Project File Date:  12/20/2020
 
 <h2>Output:</h2>
 Build target 'Target 1'
-compiling main.c...
-dac.h(3): error:  #20: identifier "N_muestras" is undefined
-main.c(26): warning:  #77-D: this declaration has no storage class or type specifier
-compiling UTS.c...
-compiling dac.c...
-dac.h(3): error:  #20: identifier "N_muestras" is undefined
-dac.c(31): warning:  #223-D: function "sin" declared implicitly
-".\SED.axf" - 2 Errors, 2 Warning(s).
+compiling uart.c...
+uart.c(47): warning:  #223-D: function "atoi" declared implicitly
+linking...
+.\SED.axf: Error: L6218E: Undefined symbol periodo_servo (referred from uart.o).
+".\SED.axf" - 1 Errors, 1 Warning(s).
 Target not created
 Build target 'Target 1'
 compiling main.c...
-main.c(26): warning:  #77-D: this declaration has no storage class or type specifier
-compiling dac.c...
-dac.c(31): warning:  #223-D: function "sin" declared implicitly
-linking...
-Program Size: Code=25090 RO-data=2222 RW-data=28 ZI-data=676  
-".\SED.axf" - 0 Errors, 2 Warning(s).
-Rebuild target 'Target 1'
-assembling startup_LPC17xx.s...
-compiling system_LPC17xx.c...
+main.c(168): error:  #20: identifier "periodo_sevo" is undefined
+".\SED.axf" - 1 Errors, 0 Warning(s).
+Target not created
+Build target 'Target 1'
 compiling main.c...
-main.c(26): warning:  #77-D: this declaration has no storage class or type specifier
-compiling servo.c...
-compiling GLCD.c...
-compiling AsciiLib.c...
-compiling UTS.c...
-compiling dac.c...
-dac.c(31): warning:  #223-D: function "sin" declared implicitly
 linking...
-Program Size: Code=25090 RO-data=2222 RW-data=28 ZI-data=676  
-".\SED.axf" - 0 Errors, 2 Warning(s).
+Program Size: Code=26630 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(49): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26638 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(49): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26630 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26630 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26634 RO-data=2806 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26610 RO-data=2806 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26606 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26606 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26606 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+linking...
+Program Size: Code=26606 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26610 RO-data=2806 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26606 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Cannot Write to RAM for Flash Algorithms !
+Verify Failed!
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26610 RO-data=2806 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26606 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26598 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26598 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26598 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26602 RO-data=2806 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26610 RO-data=2806 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26618 RO-data=2806 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26618 RO-data=2806 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26610 RO-data=2806 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26602 RO-data=2806 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26598 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(44): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26610 RO-data=2806 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+uart.c(49): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26630 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+compiling uart.c...
+uart.c(49): warning:  #223-D: function "atoi" declared implicitly
+linking...
+Program Size: Code=26630 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=26622 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=26622 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=26622 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=26630 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=26630 RO-data=2810 RW-data=64 ZI-data=704  
+".\SED.axf" - 0 Errors, 0 Warning(s).

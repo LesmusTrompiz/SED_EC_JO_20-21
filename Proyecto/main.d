@@ -10,3 +10,4 @@
 .\main.o: GLCD/GLCD.h
 .\main.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdio.h
 .\main.o: dac.h
+.\main.o: uart.h
