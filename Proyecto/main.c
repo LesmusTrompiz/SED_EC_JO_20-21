@@ -21,7 +21,6 @@
         __  / / /| | | / // // __/ / /_/ /  / / / / /_/ / / /  / /   / / 
        / /_/ / ___ | |/ // // /___/ _, _/  / /_/ / _, _/ / / _/ /   / /__
        \____/_/  |_|___/___/_____/_/ |_|   \____/_/ |_| /_/ /___/  /____/
-
 */
 
 
@@ -67,18 +66,15 @@ void config_prioridades(void)
 int main(void)
 {
   // Inicio la estructura global:
-  sonar.state            = ST_SETUP;
-  sonar.distance         = 0;							
+  sonar.state            = ST_SETUP;              // El sonar empieza en modo configurable
+  sonar.distance         = 0;							        
   sonar.servo_pose       = 0; 
   sonar.servo_period     = 1;
   sonar.servo_resolution = 10;
   sonar.f_block_keys     = 0;							
   sonar.f_block_move     = 1;							
   sonar.f_block_measure  = 0;								
-  
-  // Inicializamos la señal del DAC
-  
-  
+    
   // Configuraciones:
   config_timer05();
   config_keys();
@@ -99,7 +95,6 @@ int main(void)
     sonar.f_block_move = 0;
     // Mostramos el estado del sonar
     // Pongo la medida en pantalla
-  
   
   
 }	
