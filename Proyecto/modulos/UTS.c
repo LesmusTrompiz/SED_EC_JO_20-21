@@ -1,6 +1,6 @@
 
 #include "UTS.H"
-#include <LPC17xx.H>
+
 
 
 // Timer 1 en modo captura (CAP0.0)
@@ -17,9 +17,9 @@ void config_UTS(void)
   LPC_TIM3-> PR = 0;                              // 25MHz.
   
   // Que hacemos cuando llegamos al match:
-  LPC_TIM3->MR0 = Fpclk * TH_UTS/2 -1;            // Match a los 5us -> on/off.
-  LPC_TIM3->EMR|=(1<<0)|(3<<4);                   // Cuando llega al match el pin hace toggle.
-	LPC_TIM3->MCR |=3; 						                  // Cuando llega al match interrumpe y se reinicia a 0 el Timer Counter
+  LPC_TIM3->MR0  = Fpclk * TH_UTS/2 -1;            // Match a los 5us -> on/off.
+  LPC_TIM3->EMR |= (1<<0)|(3<<4);                  // Cuando llega al match el pin hace toggle.
+	LPC_TIM3->MCR |= 3; 						                 // Cuando llega al match interrumpe y se reinicia a 0 el Timer Counter
   
   // Configurar el capture:
   LPC_TIM3->CCR=(1<<2)|(1<<0);                    // Interrumpe si hay flanco de subida en el capture.
@@ -52,7 +52,6 @@ void TIMER3_IRQHandler(void)
   */
 
   static float inicio = 0;                        // Variable auxiliar para calcular el ancho del Echo.
-  char msg [10];
   // Interrupción por Match:
   if(((LPC_TIM3->IR>>0)&1))                      
   {
@@ -72,7 +71,7 @@ void TIMER3_IRQHandler(void)
   else
   {                                            
     LPC_TIM3->IR=1<<4;
-    distancia = ((LPC_TIM3->CR0-inicio)           //Cálculo la distancia medida en cm.
+    sonar.distance = ((LPC_TIM3->CR0-inicio)      //Calculo la distancia medida en cm.
         * (1/Fpclk)*0.5*340*100);                 
     LPC_TIM3->TCR &=~(1<<0);                      // Paramos de contar
     LPC_TIM3->TCR |=(1<<1);                       // Reseteamos
@@ -80,9 +79,9 @@ void TIMER3_IRQHandler(void)
     inicio = 0;
     
     // Cambio la frecuencia de pitido
-    if(distancia <= UMBRAL)
+    if(sonar.distance <= UMBRAL)
 		{  
-			LPC_TIM1->MR0  = Fpclk/(5000 - distancia *10)/N_MUESTRAS -1;
+			LPC_TIM1->MR0  = Fpclk/(5000 - sonar.distance *10)/N_MUESTRAS -1;
 			LPC_TIM1->TCR|=(1<<1);
 			LPC_TIM1->TCR &=~(1<<1);                   // Quitamos el bit del reset
 			LPC_TIM1->TCR|=(1<<0);                     // Habilitamos el timer
@@ -93,10 +92,6 @@ void TIMER3_IRQHandler(void)
 			LPC_TIM1->TCR &=~(1<<0);                       // Timer up
 			LPC_TIM1->TCR|=(1<<1);                         // Reset
 		}
-
-    // Pongo la medida en pantalla
-    sprintf(msg, "Distancia medida =  %3.2f",distancia);
-		GUI_Text(20,40,(uint8_t *)msg,White,Black);
   }
 }
 

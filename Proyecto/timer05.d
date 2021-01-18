@@ -1,0 +1,11 @@
+.\timer05.o: modulos\timer05.c
+.\timer05.o: modulos\timer05.h
+.\timer05.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.H
+.\timer05.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cm3.h
+.\timer05.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\timer05.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmInstr.h
+.\timer05.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmFunc.h
+.\timer05.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\timer05.o: modulos\state.h
+.\timer05.o: modulos\UTS.h
+.\timer05.o: modulos\servo.h

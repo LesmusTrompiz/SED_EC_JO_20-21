@@ -139,7 +139,7 @@
             <RestoreTracepoints>1</RestoreTracepoints>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>5</TargetSelection>
+          <TargetSelection>0</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -153,7 +153,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>Segger\JL2CM3.dll</Driver>
+            <Driver>BIN\UL2CM3.DLL</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -418,34 +418,44 @@
           <GroupName>bibliotecas</GroupName>
           <Files>
             <File>
-              <FileName>servo.c</FileName>
+              <FileName>AsciiLib.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\servo.c</FilePath>
+              <FilePath>.\modulos\GLCD\AsciiLib.c</FilePath>
             </File>
             <File>
               <FileName>GLCD.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\GLCD\GLCD.c</FilePath>
-            </File>
-            <File>
-              <FileName>AsciiLib.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\GLCD\AsciiLib.c</FilePath>
-            </File>
-            <File>
-              <FileName>UTS.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\UTS.c</FilePath>
+              <FilePath>.\modulos\GLCD\GLCD.c</FilePath>
             </File>
             <File>
               <FileName>dac.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\dac.c</FilePath>
+              <FilePath>.\modulos\dac.c</FilePath>
+            </File>
+            <File>
+              <FileName>keys.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\modulos\keys.c</FilePath>
+            </File>
+            <File>
+              <FileName>servo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\modulos\servo.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer05.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\modulos\timer05.c</FilePath>
             </File>
             <File>
               <FileName>uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\uart.c</FilePath>
+              <FilePath>.\modulos\uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>UTS.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\modulos\UTS.c</FilePath>
             </File>
           </Files>
         </Group>

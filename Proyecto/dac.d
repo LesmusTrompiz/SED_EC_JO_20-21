@@ -1,5 +1,5 @@
-.\dac.o: dac.c
-.\dac.o: dac.h
+.\dac.o: modulos\dac.c
+.\dac.o: modulos\dac.h
 .\dac.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.H
 .\dac.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cm3.h
 .\dac.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdint.h

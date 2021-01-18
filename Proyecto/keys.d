@@ -1,0 +1,11 @@
+.\keys.o: modulos\keys.c
+.\keys.o: modulos\keys.h
+.\keys.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.H
+.\keys.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cm3.h
+.\keys.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\keys.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmInstr.h
+.\keys.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmFunc.h
+.\keys.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\keys.o: modulos\state.h
+.\keys.o: modulos\uart.h
+.\keys.o: modulos\servo.h

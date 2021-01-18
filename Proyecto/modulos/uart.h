@@ -8,6 +8,8 @@
 #ifndef UART_H_
 #define UART_H_
 
+#include <LPC17xx.h>
+#include "state.h"
 // Accepted Error baud rate value (in percent unit)
 #define UART_ACCEPTED_BAUDRATE_ERROR    3
 
@@ -22,8 +24,8 @@
 #define RDA_INTERRUPT                   (2 << 1)
 #define CTI_INTERRUPT                   (6 << 1)
 
-extern int periodo_servo;
-extern int resolucion_servo;
+extern struct sonar_status sonar;
+
 extern void uart0_init(int baudrate);
 extern void tx_cadena_UART0(char *ptr);
 

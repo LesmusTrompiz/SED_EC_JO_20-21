@@ -7,14 +7,13 @@
 #define N_MUESTRAS 32    // T
 
 
-
-#include "GLCD/GLCD.h"
-#include "stdio.h"
-
+#include "state.h"
+#include <LPC17xx.H>
 void config_UTS(void);
 void UTS_trigger(void);
 
-extern float distancia;
+
+extern struct sonar_status sonar;
 
 
 #endif 

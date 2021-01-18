@@ -7,9 +7,9 @@
  4  uart0_init(int baudrate) 
   
  */
-#include <LPC17xx.h>
-#include "uart.h"
 
+#include "uart.h"
+#include <stdlib.h>
 char *ptr_tx;			// puntero de transmisi�n
 char tx_completa;		// Flag de transmisi�n de cadena completa
 char buffer[30];	    // Buffer de recepci�n
@@ -30,31 +30,30 @@ void analize_msg(void)
     {
         static char first_time = 1;
         int aux = 0; 
-        
-				if (first_time)
-				{
+		if (first_time)
+        {
             tx_cadena_UART0("You're in automatic mode. \n - To set resolution in degrees enter xxg (where xx are possible resolutions in degrees: 05, 10, 15, 20).\n-To set the period of each servomotor movement enter xs(where x are possible periods in seconds: 1 \n (for 0.5s), 2 (for 1s), 3 (for 2s). \n-To show this help message again press h");
-					  first_time = 0;
+            first_time = 0;
         }    
         else if(buffer[0] == 'h')
             tx_cadena_UART0("You're in automatic mode. \n - To set resolution in degrees enter xxg (where xx are possible resolutions in degrees: 05, 10, 15, 20).\n-To set the period of each servomotor movement enter xs(where x are possible periods in seconds: 1 \n (for 0.5s), 2 (for 1s), 3 (for 2s). \n-To show this help message again press h");
+        
         else if(buffer[1] == 's')
         {
-					if (buffer[0] > '0' && buffer[0] <= '3')
-                periodo_servo = buffer[0] - 48;
-				}
+			if (buffer[0] > '0' && buffer[0] <= '3')
+                sonar.servo_resolution = buffer[0] - 48;
+		}
         else if(buffer[2] == 'g')
-        {   
+        {  
             buffer[2] = 0;
             aux = atoi(buffer);
             if(aux== 5 || aux== 10 || aux == 15|| aux == 20)
-                resolucion_servo = aux;
+                sonar.servo_period = aux;
         }
         else
-				{
+		{
            tx_cadena_UART0("Mensaje no esperado"); 
-				}
-			
+		}
 }
 
 
@@ -67,7 +66,7 @@ void UART0_IRQHandler(void) {
 			buffer[index] = LPC_UART0->RBR; 	            /* lee el dato recibido y lo almacena */
 			if (buffer[index] == 13) 					    // Caracter return --> Cadena completa
 			{
-        analize_msg();
+                analize_msg();
 				buffer[index] = 0;		  					/* A�adimos el caracter null para tratar los datos recibidos como una cadena*/ 
 				index = 0;
 			}
