@@ -23,6 +23,8 @@
 #define RDA_INTERRUPT                   (2 << 1)
 #define CTI_INTERRUPT                   (6 << 1)
 
+#define UART_BAUDRATE                   9600
+
 extern int periodo_servo;
 extern int resolucion_servo;
 extern struct sonar_status sonar;

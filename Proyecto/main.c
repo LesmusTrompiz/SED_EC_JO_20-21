@@ -67,7 +67,7 @@ int main(void)
 {
   char msg [50];
   
-  sonar.state            = ST_SETUP;              // El sonar empieza en modo configurable
+  sonar.state            = ST_SETUP;                  // El sonar empieza en modo configurable
   sonar.distance         = 0;							        
   sonar.servo_pose       = 0; 
   sonar.servo_period     = 1;
@@ -83,17 +83,16 @@ int main(void)
   config_UTS();
 	config_DAC();
 	config_timer_dac();
-	
-	generar_muestras(); 
   config_prioridades();
   
+  // Iniciamos el Hardware 
+  // y la señal del DAC
+  generar_muestras(); 
 	LCD_Init();
   LCD_Clear(Blue);
   set_servo(0);
   
-  sprintf(msg, "Distancia medida =  %3.2f",sonar.distance);
-  GUI_Text(20,40,(uint8_t *)msg,White,Black);
-  GUI_Text(10,20,(uint8_t *)"Hola",Cyan,Black);
+  GUI_Text(10,20,(uint8_t *)"Iniciando",Cyan,Black);
   
   while(1)
 	{
