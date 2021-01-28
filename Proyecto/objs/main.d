@@ -1,0 +1,15 @@
+.\objs\main.o: main.c
+.\objs\main.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.H
+.\objs\main.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cm3.h
+.\objs\main.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\objs\main.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmInstr.h
+.\objs\main.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmFunc.h
+.\objs\main.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\objs\main.o: modulos/servo.h
+.\objs\main.o: modulos/UTS.h
+.\objs\main.o: modulos/GLCD/GLCD.h
+.\objs\main.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\objs\main.o: modulos/uart.h
+.\objs\main.o: modulos/state.h
+.\objs\main.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\objs\main.o: modulos/dac.h

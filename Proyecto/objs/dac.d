@@ -1,0 +1,9 @@
+.\objs\dac.o: modulos\dac.c
+.\objs\dac.o: modulos\dac.h
+.\objs\dac.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.H
+.\objs\dac.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cm3.h
+.\objs\dac.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\objs\dac.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmInstr.h
+.\objs\dac.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmFunc.h
+.\objs\dac.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\objs\dac.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h
