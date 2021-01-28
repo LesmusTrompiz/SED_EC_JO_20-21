@@ -43,174 +43,25 @@
 struct sonar_status sonar;
 uint16_t muestras[N_MUESTRAS];  									    // Array que contiene la señal del DAC 
 
-
-void config_botones(void)
-{
-	/*
-		Configura los botones
-		para que interrumpan si
-		son impresionados.
-	
-		Estos botones se encargan
-		de mover el servo en modo 
-		manual, configurar el modo
-		en el inicio, activar
-		la medición automática en 
-		modo manual y activar el 
-	  sonar.f_block_move en modo 
-		automático. 
-	*/
-	
-  LPC_PINCON->PINSEL4|=(1<<20)|(1<<22)|(1<<24);		    // Configuro el modo de funcionamiento de los pines.
-  NVIC_EnableIRQ(EINT0_IRQn);											    // Hablitamos interrupción ISP
-  NVIC_EnableIRQ(EINT1_IRQn);											    // Hablitamos interrupción KEY1
-  NVIC_EnableIRQ(EINT2_IRQn);										      // Hablitamos interrupción KEY2
-}
-
 void config_prioridades(void)
 {
 	/*
-		Configura de todas las 
-		prioridades a excepción
-		de la UART.
-	
-		Se considera el orden 
-		de prioridad
-	
+		config_prioridades :: void -> void
+    
+    Esta función configura las prioridades
+    de todas las interrupciones que se usan
+    en el proyecto, excepto la de la UART 
+    que se configura en su propia 
+    configuración. 
 	
 	*/
-  NVIC_SetPriority(TIMER3_IRQn,0);								// UTS
-  NVIC_SetPriority(TIMER0_IRQn,1);								// 0.5 Timer	
-  NVIC_SetPriority(EINT0_IRQn,2);	    						// KEY ISP
-  NVIC_SetPriority(EINT1_IRQn,3);									// KEY 1
-  NVIC_SetPriority(EINT2_IRQn,4);									// KEY 2
-	NVIC_SetPriority(TIMER1_IRQn,5);				   			// DAC
+  NVIC_SetPriority(TIMER3_IRQn,0);								    // UTS
+  NVIC_SetPriority(TIMER0_IRQn,1);								    // 0.5 Timer	
+  NVIC_SetPriority(EINT0_IRQn, 2);	    						  // KEY ISP
+  NVIC_SetPriority(EINT1_IRQn, 3);									  // KEY 1
+  NVIC_SetPriority(EINT2_IRQn, 4);									  // KEY 2
+	NVIC_SetPriority(TIMER1_IRQn,5);				   			    // DAC
 }
-
-void EINT0_IRQHandler()
-{
-  LPC_SC->EXTINT |= (1<<0);												// Borramos flag interrupción
-  if(!sonar.f_block_keys)																																			
-  {																								// Este flag es para evirtar 
-    switch(sonar.state)
-    {
-      case(ST_AUTOMATICO):
-        sonar.f_block_move ^= 1;
-        break;
-      case(ST_MANUAL):
-        sonar.f_block_measure ^= 1;			
-        break;
-    }
-    sonar.f_block_keys = 1;
-  }
-}
-
-void EINT1_IRQHandler()
-{
-  LPC_SC->EXTINT |= (1<<1);												// Borramos flag interrupción
-  
-  switch(sonar.state)
-  {
-    case(ST_SETUP):
-      sonar.state = ST_AUTOMATICO;
-			uart0_init(9600);
-      break;
-
-    case(ST_MANUAL):
-      if((!((sonar.servo_pose + 10) > 180)) && !(sonar.f_block_keys))
-      {	
-        set_servo(sonar.servo_pose += 10);
-        sonar.f_block_keys = 1;	
-      }
-      break;
-  }
-}
-
-void EINT2_IRQHandler()
-{
-  LPC_SC->EXTINT |= (1<<2);												// Borramos flag interrupción
-  if(
-		(sonar.state == ST_MANUAL) 
-			&& 
-		 (!((sonar.servo_pose - 10) < 0)) 
-			&& 
-	   !(sonar.f_block_keys)
-	)
-	{	
-    set_servo(sonar.servo_pose -= 10);
-    sonar.f_block_keys = 1;
-  }
-}
-
-void config_timer05()
-{
-  /*
-    Configuro un timer para que
-  	salte cada 0.5 S.
-	
-		Este timer se utilizará
-		para medir, mover el servo
-		en modo automático y 
-		configurar el modo tras
-	  el reincio.
-  */
-	
-  LPC_SC->PCONP |=(1<<1);  												// Alimento Timer 0 
-  LPC_TIM0->PR   = 0;	  													// Ponemos el prescaler a 0 
-  LPC_TIM0->MR0  = (Fpclk*0.5-1);									// Frecuencia de 0.5s
-  LPC_TIM0->MCR  = 3; 								  					// Match -> interrpt,stop and reset	
-  LPC_TIM0->TCR |= (1<<0);				  							// Start count
-  NVIC_EnableIRQ(TIMER0_IRQn);										// Hablitamos interrupción.			
-}
-
-void TIMER0_IRQHandler()
-{
-  static char sentido = POSITIVO;
-  static int  ciclo = 0;
-
-  LPC_TIM0->IR=1<<0;
-  
-  switch(sonar.state)
-  {
-    case(ST_SETUP):
-      sonar.state = ST_MANUAL;
-      break;
-
-    case(ST_AUTOMATICO):
-      UTS_trigger();
-      ciclo++;
-      if(!sonar.f_block_move && (ciclo >= 1))
-      {	
-        if(sentido == POSITIVO)
-        {
-          if((sonar.servo_pose + sonar.servo_resolution) > 180)
-            sentido = NEGATIVO;	
-          
-          else
-            set_servo(sonar.servo_pose += sonar.servo_resolution);	
-        }
-        
-        else
-        {
-          if((sonar.servo_pose - sonar.servo_resolution) < 0)
-          {
-            sentido = POSITIVO;
-            set_servo(sonar.servo_pose += sonar.servo_resolution);
-          }
-          else
-            set_servo(sonar.servo_pose -= sonar.servo_resolution);		
-        }
-        ciclo = 0;
-      }
-      break;
-		
-    case(ST_MANUAL):
-      if(sonar.f_block_measure)
-        UTS_trigger();
-      break;
-  }
-}
-
 
 int main(void)
 {
@@ -227,7 +78,7 @@ int main(void)
 	
 	// Configuraciones:
   config_timer05();
-  config_botones();
+  config_keys();
   config_servo();
   config_UTS();
 	config_DAC();
