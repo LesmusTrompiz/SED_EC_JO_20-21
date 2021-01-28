@@ -12,7 +12,7 @@ void config_UTS(void)
 
   // Configuración básica:
   LPC_SC->PCONP |=(1<<23);              	        // Alimento Timer 3.
-  LPC_PINCON->PINSEL1|=(3<<14);   	   		        // P1.20 como capture. 
+  LPC_PINCON->PINSEL1|=(3<<14);   	   		        // P0.23 como capture. 
   LPC_PINCON->PINSEL0|=(3<<20);                   // P0.10 como MAT.
   LPC_TIM3-> PR = 0;                              // 25MHz.
   
@@ -34,9 +34,9 @@ void UTS_trigger(void)
     Activo el trigger para empezar
     con la secuencia de medida.
   */
-  LPC_TIM3->MCR |=3; 						                  // El match interrumpe y  se reinicia a 0 el Timer Counter
-	LPC_TIM3->TCR &=~(1<<1);                        // Quitamos el bit del reset
-  LPC_TIM3-> TCR|=(1<<0);                         // Habilitamos el timer
+  LPC_TIM3-> MCR |=3; 						                  // El match interrumpe y  se reinicia a 0 el Timer Counter
+	LPC_TIM3-> TCR &=~(1<<1);                        // Quitamos el bit del reset
+  LPC_TIM3-> TCR |=(1<<0);                         // Habilitamos el timer
 } 
 
 void TIMER3_IRQHandler(void)

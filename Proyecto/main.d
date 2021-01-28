@@ -15,3 +15,4 @@
 .\main.o: modulos/keys.h
 .\main.o: modulos/servo.h
 .\main.o: modulos/GLCD/GLCD.h
+.\main.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdio.h

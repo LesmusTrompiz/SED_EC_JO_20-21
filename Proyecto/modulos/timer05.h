@@ -5,14 +5,12 @@
 
 #include <LPC17xx.H>
 #include "state.h"
-#define Fpclk 25e6	// Fcpu/4 (defecto despu?s del reset)
 #include "UTS.h"
 #include "servo.h"
-void config_timer05(void);
 
+#define   Fpclk 25e6	// Fcpu/4 (defecto despu?s del reset)
 
-
-extern struct sonar_status sonar;
-
+extern    struct sonar_status sonar;
+void      config_timer05(void);
 
 #endif 

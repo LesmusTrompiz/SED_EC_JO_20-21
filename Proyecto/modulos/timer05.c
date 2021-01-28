@@ -31,7 +31,7 @@ void TIMER0_IRQHandler()
     case(ST_AUTOMATICO):
       UTS_trigger();
       loop_iter++;
-      if(sonar.f_block_move && (loop_iter == sonar.servo_period))
+      if(!sonar.f_block_move && (loop_iter == sonar.servo_period))
       {	
         if(sentido == POSITIVO)
         {

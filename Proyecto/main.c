@@ -21,6 +21,21 @@
         __  / / /| | | / // // __/ / /_/ /  / / / / /_/ / / /  / /   / / 
        / /_/ / ___ | |/ // // /___/ _, _/  / /_/ / _, _/ / / _/ /   / /__
        \____/_/  |_|___/___/_____/_/ |_|   \____/_/ |_| /_/ /___/  /____/
+
+
+    MDK2 SCHEME:
+      Servo:
+        - Vcc   
+        - PWM : P1.20
+        - GND 
+      UTS:
+        - Vcc 
+        - Trigger : P0.10
+        - Echo    : P0.23
+        - GND
+      DAC:
+
+        
 */
 
 
@@ -38,10 +53,10 @@
 
 // Bibliotecas externas:
 #include "modulos/GLCD/GLCD.h"
-
+#include <stdio.h>
 
 // Estructura globales:
-struct sonar_status sonar;
+struct   sonar_status sonar;
 uint16_t muestras[N_MUESTRAS]; 
 
 void config_prioridades(void)
@@ -57,14 +72,15 @@ void config_prioridades(void)
   */
   NVIC_SetPriority(TIMER3_IRQn,0);								// UTS
   NVIC_SetPriority(TIMER0_IRQn,1);								// 0.5 Timer	
-  NVIC_SetPriority(EINT0_IRQn,2);	    						// KEY ISP
-  NVIC_SetPriority(EINT1_IRQn,3);									// KEY 1
-  NVIC_SetPriority(EINT2_IRQn,4);									// KEY 2
+  NVIC_SetPriority(EINT0_IRQn, 2);	    					// KEY ISP
+  NVIC_SetPriority(EINT1_IRQn, 3);								// KEY 1
+  NVIC_SetPriority(EINT2_IRQn, 4);								// KEY 2
 	NVIC_SetPriority(TIMER1_IRQn,5);				   			// DAC
 }
 
 int main(void)
 {
+  char msg[20];
   // Inicio la estructura global:
   sonar.state            = ST_SETUP;              // El sonar empieza en modo configurable
   sonar.distance         = 0;							        
@@ -72,7 +88,7 @@ int main(void)
   sonar.servo_period     = 1;
   sonar.servo_resolution = 10;
   sonar.f_block_keys     = 0;							
-  sonar.f_block_move     = 1;							
+  sonar.f_block_move     = 0;							
   sonar.f_block_measure  = 0;								
     
   // Configuraciones:
@@ -89,12 +105,17 @@ int main(void)
 	generar_muestras(); 
   LCD_Init();
   LCD_Clear(Blue);
+	GUI_Text(20,40,(uint8_t *)"HOLA",White,Black);
   set_servo(0);
   
   while(1)
-    sonar.f_block_move = 0;
-    // Mostramos el estado del sonar
+	{
+		sonar.f_block_keys = 0;
+		sprintf(msg, "Distancia medida =  %3.2f",sonar.distance);
+ 		GUI_Text(20,40,(uint8_t *)msg,White,Black);
+
+	}
+		// Mostramos el estado del sonar
     // Pongo la medida en pantalla
-  
-  
+    
 }	

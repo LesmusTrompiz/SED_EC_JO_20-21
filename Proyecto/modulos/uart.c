@@ -10,18 +10,18 @@
 
 #include "uart.h"
 #include <stdlib.h>
-char *ptr_tx;			// puntero de transmisi�n
-char tx_completa;		// Flag de transmisi�n de cadena completa
-char buffer[30];	    // Buffer de recepci�n
+char *ptr_tx;			        // puntero de transmisi�n
+char tx_completa;		        // Flag de transmisi�n de cadena completa
+char buffer[30];	            // Buffer de recepci�n
 
 /*
  * UART0 interrupt handler
  */
  void tx_cadena_UART0(char *cadena)
 {
-   ptr_tx=cadena;
-   tx_completa=0;
-   LPC_UART0->THR=*ptr_tx++;	 // IMPORTANTE: Introducir un car�cter al comienzo para iniciar TX o
+   ptr_tx         = cadena;
+   tx_completa    = 0;
+   LPC_UART0->THR = *ptr_tx++;	 // IMPORTANTE: Introducir un car�cter al comienzo para iniciar TX o
 }							     // activar flag interrupci�n por registro transmisor vacio
 
 
@@ -62,11 +62,11 @@ void UART0_IRQHandler(void) {
 	
   switch(LPC_UART0->IIR&0x0E) {
 		static int index = 0;
-		case 0x04:								 	    /* RBR, Receiver Buffer Ready */
-			buffer[index] = LPC_UART0->RBR; 	            /* lee el dato recibido y lo almacena */
+		case 0x04:								 	        /* RBR, Receiver Buffer Ready */
+			buffer[index] = LPC_UART0->RBR; 	            /* Lee el dato recibido y lo almacena */
 			if (buffer[index] == 13) 					    // Caracter return --> Cadena completa
 			{
-                analize_msg();
+                analize_msg();                              
 				buffer[index] = 0;		  					/* A�adimos el caracter null para tratar los datos recibidos como una cadena*/ 
 				index = 0;
 			}
@@ -153,9 +153,7 @@ static int uart0_set_baudrate(unsigned int baudrate) {
         LPC_UART0->DLM = (unsigned char) ((dividerOptimal >> 8) & 0xFF);
         LPC_UART0->DLL = (unsigned char) dividerOptimal;
         LPC_UART0->LCR &= ~DLAB_ENABLE;	// importante poner a 0
-
         LPC_UART0->FDR = ((mulFracDivOptimal << 4) & 0xF0) | (dividerAddOptimal & 0x0F);
-
         errorStatus = 0; //< Success
     }
 

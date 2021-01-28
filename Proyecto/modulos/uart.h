@@ -24,8 +24,9 @@
 #define RDA_INTERRUPT                   (2 << 1)
 #define CTI_INTERRUPT                   (6 << 1)
 
-extern struct sonar_status sonar;
+#define UART_BAUDRATE 9600
 
+extern struct sonar_status sonar;
 extern void uart0_init(int baudrate);
 extern void tx_cadena_UART0(char *ptr);
 
