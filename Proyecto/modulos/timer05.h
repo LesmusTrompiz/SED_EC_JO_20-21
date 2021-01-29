@@ -9,10 +9,7 @@
 #include "servo.h"
 
 // Necessary global variable:
-extern struct sonar_status sonar;                     // Sonar state is modified by timer 0.5
-
-// New defines:
-#define Fpclk 25e6	                                  // Fcpu / 4 
+extern struct sonar_status sonar;                     // Sonar state is modified by timer 0.5 handler.
 
 // Avaible functions that can be called:
 void config_timer05(void);                            // Configure the Timer0 to interrupt every 0.5 seconds.	

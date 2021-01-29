@@ -8,8 +8,4 @@
 .\objs\timer05.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
 .\objs\timer05.o: modulos\state.h
 .\objs\timer05.o: modulos\UTS.h
-.\objs\timer05.o: modulos\GLCD/GLCD.h
-.\objs\timer05.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdio.h
-.\objs\timer05.o: modulos\uart.h
-.\objs\timer05.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\objs\timer05.o: modulos\servo.h

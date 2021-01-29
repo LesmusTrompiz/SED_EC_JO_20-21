@@ -7,9 +7,10 @@
 #define ST_SETUP       0			                        // Number associated with the setup mode.	
 #define ST_MANUAL      1			                        // Number associated with the manual mode.
 #define ST_AUTOMATIC   2			                        // Number associated with the automatic mode.
-#define N_SAMPLES     32                              // Total number of samples of the sinusoidal signal.
 #define POSITIVO       0			                        // Number associated with the positive direction of the servo.
 #define NEGATIVO       1			                        // Number associated with the negative direction of the servo.
+#define N_SAMPLES     32                              // Total number of samples of the sinusoidal signal.
+#define Fpclk 25e6	                                  // Frecuency of the peripherals by default.
 
 // New struct:
 struct sonar_status               
