@@ -13,3 +13,5 @@
 .\objs\main.o: modulos/state.h
 .\objs\main.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\objs\main.o: modulos/dac.h
+.\objs\main.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h
+.\objs\main.o: modulos/screen.h

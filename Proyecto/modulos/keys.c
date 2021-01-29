@@ -1,4 +1,4 @@
-
+// Link this source code with his .h file.
 #include "keys.h"
 
 void config_keys(void)
@@ -55,7 +55,7 @@ void EINT0_IRQHandler()
         break;
     }
     sonar.f_block_keys = 1;                           // Raise the flag to indicate that we have alredy 
-    }                                                 // interrupted this cycle.
+  }                                                   // interrupted this cycle.
 }
 
 void EINT1_IRQHandler()

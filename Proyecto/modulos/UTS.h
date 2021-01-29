@@ -11,6 +11,7 @@
 #include "GLCD/GLCD.h"
 #include "stdio.h"
 #include "uart.h"
+#include <LPC17xx.H>
 #include <stdlib.h>
 void config_UTS(void);
 void UTS_trigger(void);

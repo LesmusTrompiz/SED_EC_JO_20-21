@@ -25,81 +25,80 @@
 */
 
 
-// Biblioteca de la LPC17.xx
+// Library of the LPC17.xx
 #include <LPC17xx.H>
 
-// Bibliotecas propias:
+// Own libraries:
 #include "modulos/servo.h"
 #include "modulos/UTS.h"
 #include "modulos/dac.h"
 #include "modulos/uart.h"
 #include "modulos/state.h"
+#include "modulos/screen.h"
 
-// Bibliotecas externas:
+// Extern libraries:
 #include "modulos/GLCD/GLCD.h"
-#include <stdio.h>
 
-// Estructura globales:
-struct sonar_status sonar;
-uint16_t muestras[N_MUESTRAS];  									    // Array que contiene la señal del DAC 
+// Global variables:
+struct sonar_status sonar;                            // Struct that contais the state of the sonar.
+uint16_t muestras[N_MUESTRAS];  									    // Array that contains the samples of the DAC signal. 
 
-void config_prioridades(void)
+void config_priorities(void)
 {
 	/*
-		config_prioridades :: void -> void
+		config_priorities :: void -> void
     
-    Esta función configura las prioridades
-    de todas las interrupciones que se usan
-    en el proyecto, excepto la de la UART 
-    que se configura en su propia 
-    configuración. 
-	
+    Set the priorities of all the 
+    interruptions that are used in
+    the project, except the priority 
+    of the UART that is configured 
+    in its own configuration function.
+
 	*/
-  NVIC_SetPriority(TIMER3_IRQn,0);								    // UTS
-  NVIC_SetPriority(TIMER0_IRQn,1);								    // 0.5 Timer	
-  NVIC_SetPriority(EINT0_IRQn, 2);	    						  // KEY ISP
-  NVIC_SetPriority(EINT1_IRQn, 3);									  // KEY 1
-  NVIC_SetPriority(EINT2_IRQn, 4);									  // KEY 2
-	NVIC_SetPriority(TIMER1_IRQn,5);				   			    // DAC
+  NVIC_SetPriority(TIMER3_IRQn,0);								    // UTS        -> 0.
+  NVIC_SetPriority(TIMER0_IRQn,1);								    // 0.5 Timer	-> 1.
+  NVIC_SetPriority(EINT0_IRQn, 2);	    						  // KEY ISP    -> 2.
+  NVIC_SetPriority(EINT1_IRQn, 3);									  // KEY 1      -> 3.
+  NVIC_SetPriority(EINT2_IRQn, 4);									  // KEY 2      -> 4.
+	NVIC_SetPriority(TIMER1_IRQn,5);				   			    // DAC        -> 5.
 }
 
 int main(void)
 {
-  char msg [50];
+
   
-  sonar.state            = ST_SETUP;                  // El sonar empieza en modo configurable
-  sonar.distance         = 0;							        
-  sonar.servo_pose       = 0; 
-  sonar.servo_period     = 1;
-  sonar.servo_resolution = 10;
-  sonar.f_block_keys     = 0;							
-  sonar.f_block_move     = 0;							
-  sonar.f_block_measure  = 0;	
-	
-	// Configuraciones:
-  config_timer05();
+  // Initialize the struct:
+  sonar.state            = ST_SETUP;                  // Sonar starts in Setup mode.
+  sonar.distance         = 0;							            // Sonar distancie is initialize with a zero.
+  sonar.servo_pose       = 0;                         // The servo starts at zero degrees.
+  sonar.servo_period     = 1;                         // The servo period is initialize with a period of a 0.5 seconds.
+  sonar.servo_resolution = 10;                        // The servo resolution is initialize with a resolution of 10 degrees.
+  sonar.f_block_keys     = 0;							            // The flag f_block_keys is initialize with a zero.
+  sonar.f_block_move     = 0;							            // The flag f_block_move is initialize with a zero because at beggining 
+                                                      // of the automatic mode the servo can move.
+  sonar.f_block_measure  = 1;	                        // The flag f_block_measure is initialize with one because at beggining 
+                                                      // of the manual mode the UTS can not move.	
+	// Configure the hardware:
+  config_timer05();                                  
   config_keys();
   config_servo();
   config_UTS();
 	config_DAC();
 	config_timer_dac();
-  config_prioridades();
+  config_priorities();
+  LCD_Init();    
+
+  // Initialize the output 
+  // and the DAC Signal:
+  generate_samples();                                 // Generate the samples of the sinusoidal signal of the DAC               
+  LCD_Clear(Blue);                                    // Fill the screen with blue
+  set_servo(0);                                       // Initialize the servo pose
   
-  // Iniciamos el Hardware 
-  // y la señal del DAC
-  generar_muestras(); 
-	LCD_Init();
-  LCD_Clear(Blue);
-  set_servo(0);
-  
-  GUI_Text(10,20,(uint8_t *)"Iniciando",Cyan,Black);
   
   while(1)
 	{
-    sonar.f_block_keys = 0;
-		sprintf(msg, "Distancia medida =  %3.2f",sonar.distance);
-		//tx_cadena_UART0(msg);
-		GUI_Text(20,40,(uint8_t *)msg,White,Black);
+    sonar.f_block_keys = 0;                           // Clear the flag that blocks keys funcionalities.
+    update_screen(&sonar);                            // Update the screen with the new status of the sonar.
 	}
   
 }	
