@@ -1,25 +1,33 @@
+// Preprocessor Directives to include the library only once
 #ifndef _SONARSTATUS
 #define _SONARSTATUS
 
 
-#define ST_SETUP       0			                        // sonar.state inicial		
-#define ST_MANUAL      1			                        // sonar.state manual
-#define ST_AUTOMATICO  2			                        // sonar.state automático
-#define ST_TEST 			 3			                        // Modo para probar nuevas funcionalidades
-#define N_SAMPLES     32                              // Total number of samples of the sinusoidal signal
-#define POSITIVO       0			                        // sonar.f_block_move del servo en sentido horario.
-#define NEGATIVO       1			                        // sonar.f_block_move del servo en sentido antihorario.
+// New defines:
+#define ST_SETUP       0			                        // Number associated with the setup mode.	
+#define ST_MANUAL      1			                        // Number associated with the manual mode.
+#define ST_AUTOMATIC   2			                        // Number associated with the automatic mode.
+#define N_SAMPLES     32                              // Total number of samples of the sinusoidal signal.
+#define POSITIVO       0			                        // Number associated with the positive direction of the servo.
+#define NEGATIVO       1			                        // Number associated with the negative direction of the servo.
 
-struct sonar_status
+// New struct:
+struct sonar_status               
 {
-  char  state;                       							    // Variable que indica el estado.
-  float distance;           											    // Distancia medida por el ultrasonidos en cm.
-  int   servo_pose;     
-  int   servo_period;   
-  int   servo_resolution;   
-  char  f_block_keys;       											    // Flag para evitat.
-  char  f_block_move;      										        // Flag que habilita/deshabilita el servo, se modifica con el ISP.
-  char  f_block_measure;											        // Flag que habilita/deshabilita el UTS, se modifica con el ISP.
+  /*
+    Structure that contains all
+    the information of the Sonar
+    and allows us to handle it
+    in a simple way.
+  */
+  char  state;                       							    // Contains the mode of the servo, modes allowed: Setup, Manual and Automatic.
+  float distance;           											    // The distance measure by the UTS in cm.
+  int   servo_pose;                                   // The position of the servo in degrees.
+  int   servo_period;                                 // How many 0.5 cycles are equal to the period of the servo, this parameter can be configured via UART.
+  int   servo_resolution;                             // Servo motion resolution,this parameter can be configured via UART.
+  char  f_block_keys;       											    // Flag to prevent the Eints handlers being executed multiple times when the button is pressed.
+  char  f_block_move;      										        // Flag that enables the movement of the servo in automatic mode, it can be modified via ISP.
+  char  f_block_measure;											        // Flag that allows the distance measure in manual mode, it can be modified via ISP.
 };
 
 #endif

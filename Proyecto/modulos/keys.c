@@ -47,7 +47,7 @@ void EINT0_IRQHandler()
   {																								    
     switch(sonar.state)                               
     {
-      case(ST_AUTOMATICO):                            // If we are in aumatic mode:
+      case(ST_AUTOMATIC):                             // If we are in aumatic mode:
         sonar.f_block_move ^= 1;                      // Toggle the f_block_move flag.
         break;
       case(ST_MANUAL):                                // If we are in manual mode:
@@ -87,7 +87,7 @@ void EINT1_IRQHandler()
   switch(sonar.state)
   {
     case(ST_SETUP):                                   // If we are in Setup mode:
-      sonar.state = ST_AUTOMATICO;                    // Change the mode to autatic mode.
+      sonar.state = ST_AUTOMATIC;                    // Change the mode to autatic mode.
 			uart0_init(UART_BAUDRATE);                      // Configure the UART protocol.
       break;
 
