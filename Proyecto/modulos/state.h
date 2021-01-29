@@ -1,5 +1,4 @@
 #ifndef _SONARSTATUS
-
 #define _SONARSTATUS
 
 
