@@ -89,6 +89,8 @@ void EINT1_IRQHandler()
     case(ST_SETUP):                                   // If we are in Setup mode:
       sonar.state = ST_AUTOMATIC;                     // Change the mode to autatic mode.
 			uart0_init(UART_BAUDRATE);                      // Configure the UART protocol.
+      sonar.f_block_measure  = 0;	                    // Initialize the flag for automatic mode.
+
       break;
 
     case(ST_MANUAL):                                  // If we are in Manual mode:

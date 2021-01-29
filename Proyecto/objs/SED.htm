@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\objs\SED.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\objs\SED.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Fri Jan 29 17:12:15 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Fri Jan 29 20:00:51 2021
 <BR><P>
 <H3>Maximum Stack Usage =        320 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -541,7 +541,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;analyze_msg
 </UL>
 
-<P><STRONG><a name="[71]"></a>analyze_msg</STRONG> (Thumb, 144 bytes, Stack size 8 bytes, uart.o(.text))
+<P><STRONG><a name="[71]"></a>analyze_msg</STRONG> (Thumb, 184 bytes, Stack size 8 bytes, uart.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = analyze_msg &rArr; atoi &rArr; strtol &rArr; _strtoul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
@@ -648,7 +648,7 @@ Global Symbols
 <P><STRONG><a name="[21]"></a>EINT0_IRQHandler</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, keys.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc17xx.o(RESET)
 </UL>
-<P><STRONG><a name="[22]"></a>EINT1_IRQHandler</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, keys.o(.text))
+<P><STRONG><a name="[22]"></a>EINT1_IRQHandler</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, keys.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = EINT1_IRQHandler &rArr; set_servo &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
@@ -669,7 +669,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[10]"></a>TIMER0_IRQHandler</STRONG> (Thumb, 218 bytes, Stack size 8 bytes, timer05.o(.text))
+<P><STRONG><a name="[10]"></a>TIMER0_IRQHandler</STRONG> (Thumb, 226 bytes, Stack size 8 bytes, timer05.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = TIMER0_IRQHandler &rArr; set_servo &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f

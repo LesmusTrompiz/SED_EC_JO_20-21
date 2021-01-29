@@ -37,8 +37,9 @@ extern void tx_cadena_UART0(char *ptr);
 
 // Necessary libraries:
 #include <LPC17xx.h>
-#include "state.h"
 #include <stdlib.h>
+#include "state.h"
+
 
 // New defines
 #define UART_BAUDRATE  9600                           // Selected baudrate

@@ -25,7 +25,6 @@ char buffer[30];	    // Buffer de recepci�n
 }							     // activar flag interrupci�n por registro transmisor vacio
 
 
-
 void analyze_msg(void)
 {
   /*
@@ -36,7 +35,7 @@ void analyze_msg(void)
     ones, we update the status of the 
     internal variables.
   */
-  static char first_time = 1;                         // Flag that indicates that it is the first time it is executed
+  static char first_time = 1;                         // Flag that indicates that it is the first time it is executed.
   int aux = 0;                                        // Auxilary variable.
   
   if (first_time)                                     // If is the first message received, we respond 
@@ -49,8 +48,11 @@ void analyze_msg(void)
     "movement enter xs (where x are possible"
     "periods in seconds: 1 \n "
     "(for 0.5s), 2 (for 1s), 3 (for 2s).\n"
-    "-To show this help message again press h ");
+    "-To show this help message again press h\n"
+    "-To stop/start sweep mode press m ");
     first_time = 0;
+    sonar.f_block_move = 1;
+    sonar.f_block_measure = 1;
   }    
   else if(buffer[0] == 'h')                           // If the the message is help, we respond with the instructions available
     tx_cadena_UART0("You're in automatic mode.\n"    
@@ -61,8 +63,14 @@ void analyze_msg(void)
     "movement enter xs (where x are possible"
     "periods in seconds: 1 \n "
     "(for 0.5s), 2 (for 1s), 3 (for 2s).\n"
-    "-To show this help message again press h ");
-
+    "-To show this help message again press h\n"
+    "-To stop/start sweep mode press m ");
+  
+  else if(buffer[0] == 'm')                           // If the the message is move, we toggle the flag.
+  {
+    sonar.f_block_move ^= 1;
+    sonar.f_block_measure ^= 1;
+  }
   else if(buffer[1] == 's')                           // If the message is to change the servo period                 
   {
     if (buffer[0] > '0' && buffer[0] <= '3')          // We look if is a valid period.

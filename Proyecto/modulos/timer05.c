@@ -56,8 +56,10 @@ void TIMER0_IRQHandler()
       break;
 
     case(ST_AUTOMATIC):                               // If the sonar is in Automatic mode:
-      UTS_trigger();                                  // Make a measure with the UTS
       cycle++;                                        // Increase the number of cycles
+      
+      if(!sonar.f_block_measure)                      // If the UTS is allowed to measure:
+        UTS_trigger();                                // Make a measure with the UTS
       
       if(!sonar.f_block_move                          // If the servo is allowed to move
          &&                                           // AND

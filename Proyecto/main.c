@@ -68,7 +68,6 @@ void config_priorities(void)
 int main(void)
 {
 
-  
   // Initialize the struct:
   sonar.state            = ST_SETUP;                  // Sonar starts in Setup mode.
   sonar.distance         = 0;							            // Sonar distancie is initialize with a zero.

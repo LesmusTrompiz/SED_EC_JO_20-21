@@ -6,5 +6,5 @@
 .\objs\uart.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmInstr.h
 .\objs\uart.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmFunc.h
 .\objs\uart.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
-.\objs\uart.o: modulos\state.h
 .\objs\uart.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\objs\uart.o: modulos\state.h
