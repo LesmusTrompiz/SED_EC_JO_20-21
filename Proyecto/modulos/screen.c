@@ -10,7 +10,6 @@ void update_screen(struct sonar_status *sonar)
     of the sonar state. 
   
   */
-
   char msg [50];                                      // Variable that will contains the string with the information of the sonar state.
   sprintf(msg, "Measured distance =  %3.2f",          // Format the string with the measured distance.
     sonar->distance);

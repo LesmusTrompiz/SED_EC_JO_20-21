@@ -1,3 +1,4 @@
+// Link this source code with his .h file.
 #include "timer05.h"
 
 void config_timer05()

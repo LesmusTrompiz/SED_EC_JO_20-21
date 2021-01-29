@@ -1,13 +1,17 @@
+// Preprocessor Directives to include the library only once
+#ifndef _SERVO
+#define _SERVO
 
+// Necessary libraries:
 #include <LPC17xx.H>
 
-//////////////////////////////////
-//////// Biblioteca servo ////////
-//////////////////////////////////
 
+// New defines:
+#define Fpclk 25e6	                                  // Fcpu/4 
+#define Tpwm 15e-3	                                  // Period of the PWM signal(15ms)
 
-#define Fpclk 25e6	// Fcpu/4 (defecto después del reset)
-#define Tpwm 15e-3	// Perido de la señal PWM (15ms)
+// Avaible functions that can be called:
+void config_servo(void);                              // Enables the PWM, the output pin is P1.20.
+void set_servo(float grados);                         // Moves the servo to the position passed in the argument.
 
-void config_servo(void);
-void set_servo(float grados);
+#endif 

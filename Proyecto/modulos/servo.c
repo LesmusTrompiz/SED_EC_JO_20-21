@@ -23,16 +23,17 @@ void config_servo(void)
 
 void set_servo(float degrees)
 {
-/*
-  set_servo :: float -> void
+  /*
+    set_servo :: float -> void
 
-  Moves the servo to the position
-  passed in the argument.
-*/
+    Moves the servo to the position
+    passed in the argument.
+  */
   if(degrees >= 0 && degrees <= 180)                  // If the angle doesn´t exceed the bounds.
   {
     LPC_PWM1->MR2 = (Fpclk * 0.4e-3                   // The MR2 is set to the equivalent number of TC ticks of the period
-        + Fpclk *2e-3* degrees/180);                  // that makes the servo move to the position passed in the argument
+    + 
+    Fpclk *2e-3* degrees/180);                        // that makes the servo move to the position passed in the argument
 
     LPC_PWM1->LER|=(1<<2);                            // Enables the last changes to the MR2
   }
