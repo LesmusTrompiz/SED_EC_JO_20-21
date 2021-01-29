@@ -7,7 +7,7 @@
  4  uart0_init(int baudrate) 
   
  */
-#include <LPC17xx.h>
+
 #include "uart.h"
 
 char *ptr_tx;			// puntero de transmisi�n
@@ -36,51 +36,77 @@ void analyze_msg(void)
     ones, we update the status of the 
     internal variables.
   */
-  static char first_time = 1;
-  int aux = 0; 
+  static char first_time = 1;                         // Flag that indicates that it is the first time it is executed
+  int aux = 0;                                        // Auxilary variable.
   
-  if (first_time)
-  {
-      tx_cadena_UART0("You're in automatic mode. \n - To set resolution in degrees enter xxg (where xx are possible resolutions in degrees: 05, 10, 15, 20).\n-To set the period of each servomotor movement enter xs(where x are possible periods in seconds: 1 \n (for 0.5s), 2 (for 1s), 3 (for 2s). \n-To show this help message again press h ");
-      first_time = 0;
+  if (first_time)                                     // If is the first message received, we respond 
+  {                                                   // with the instructions available:  
+    tx_cadena_UART0("You're in automatic mode.\n"    
+    "- To set resolution in degrees enter xxg"
+    "(where xx are possible resolutions in degrees:"
+    "05, 10, 15, 20).\n"
+    "-To set the period of each servomotor "
+    "movement enter xs (where x are possible"
+    "periods in seconds: 1 \n "
+    "(for 0.5s), 2 (for 1s), 3 (for 2s).\n"
+    "-To show this help message again press h ");
+    first_time = 0;
   }    
-  else if(buffer[0] == 'h')
-      tx_cadena_UART0("You're in automatic mode. \n - To set resolution in degrees enter xxg (where xx are possible resolutions in degrees: 05, 10, 15, 20).\n-To set the period of each servomotor movement enter xs(where x are possible periods in seconds: 1 \n (for 0.5s), 2 (for 1s), 3 (for 2s). \n-To show this help message again press h ");
-  else if(buffer[1] == 's')
+  else if(buffer[0] == 'h')                           // If the the message is help, we respond with the instructions available
+    tx_cadena_UART0("You're in automatic mode.\n"    
+    "- To set resolution in degrees enter xxg"
+    "(where xx are possible resolutions in degrees:"
+    "05, 10, 15, 20).\n"
+    "-To set the period of each servomotor "
+    "movement enter xs (where x are possible"
+    "periods in seconds: 1 \n "
+    "(for 0.5s), 2 (for 1s), 3 (for 2s).\n"
+    "-To show this help message again press h ");
+
+  else if(buffer[1] == 's')                           // If the message is to change the servo period                 
   {
-    if (buffer[0] > '0' && buffer[0] <= '3')
-          sonar.servo_period = buffer[0] - 48;
+    if (buffer[0] > '0' && buffer[0] <= '3')          // We look if is a valid period.
+      sonar.servo_period = buffer[0] - 48;            // Calculate the new period.
+    else                                              // If isn't a valid period we indicate it.
+      tx_cadena_UART0("Unexpected message");          
   }
-  else if(buffer[2] == 'g')
+
+  else if(buffer[2] == 'g')                           // If the message is to change the servo resolution    
   {   
-      buffer[2] = 0;
-      aux = atoi(buffer);
-      if(aux== 5 || aux== 10 || aux == 15|| aux == 20)
-        sonar.servo_resolution = aux;
+    buffer[2] = 0;                                    // Insert a null for a correct cast
+    aux = atoi(buffer);                               // Do the cast, if an error ocurrs it returns a zero.
+    if(aux== 5 || aux== 10 || aux == 15|| aux == 20)  // We look if is a valid resolution.
+      sonar.servo_resolution = aux;                   // Assing the value to the servo resolution.
+    else                                              // If isn't a valid resolution we indicate it.
+      tx_cadena_UART0("Unexpected message"); 
   }
-  else
-    tx_cadena_UART0("Mensaje no esperado"); 
-  
+  else                                                // If isn't a valid msg we indicate it.
+    tx_cadena_UART0("Unexpected message"); 
 }
 
 void UART0_IRQHandler(void) {
-	
+	/*
+    UART0_IRQHandler :: void -> void
+
+    Handles the interruption that is 
+    generated when the a msg is 
+    recived or sent.
+  */
   switch(LPC_UART0->IIR&0x0E) {
 		static int index = 0;
-		case 0x04:								 	                      /* RBR, Receiver Buffer Ready */
-			buffer[index] = LPC_UART0->RBR; 	              /* lee el dato recibido y lo almacena */
-			if (buffer[index] == 13) 					              // Caracter return --> Cadena completa
+		case 0x04:								 	                      // RBR, Receiver Buffer Ready 
+			buffer[index] = LPC_UART0->RBR; 	              // Stores the data in the correspondent index
+			if (buffer[index] == 13) 					              // Return --> Complete String,
 			{
-        analyze_msg();                                // 
-				index = 0;
+        analyze_msg();                                // Analyze the chain.
+				index = 0;                                    // Reset the index.
 			}
 			else 
-				index++;                
-			
+				index++;                                      // Increase index.
 		break;
 	
-   case 0x02:								                          //  THRE, Transmit Holding Register empty 
-		if (*ptr_tx!=0) LPC_UART0->THR=*ptr_tx++;	        //  Loads a new value for being transmitedpara ser transmitido
+   case 0x02:								                          //  THRE, Transmit Holding Register empty.
+		if (*ptr_tx!=0) LPC_UART0->THR=*ptr_tx++;	        //  Loads a new value for being transmited.
 		else tx_completa=1;
 		break;
 
@@ -90,7 +116,6 @@ void UART0_IRQHandler(void) {
 // Funci�n para enviar una cadena de texto
 // El argumento de entrada es la direcci�n de la cadena, o
 // directamente la cadena de texto entre comillas
-
 
 static int uart0_set_baudrate(unsigned int baudrate) {
     int errorStatus = -1; //< Failure
@@ -153,32 +178,27 @@ static int uart0_set_baudrate(unsigned int baudrate) {
 
     if (relativeOptimalError < ((baudrate * UART_ACCEPTED_BAUDRATE_ERROR) / 100)) {
 
-        LPC_UART0->LCR |= DLAB_ENABLE; 	// importante poner a 1
-        LPC_UART0->DLM = (unsigned char) ((dividerOptimal >> 8) & 0xFF);
-        LPC_UART0->DLL = (unsigned char) dividerOptimal;
-        LPC_UART0->LCR &= ~DLAB_ENABLE;	// importante poner a 0
+      LPC_UART0->LCR |= DLAB_ENABLE; 	// importante poner a 1
+      LPC_UART0->DLM = (unsigned char) ((dividerOptimal >> 8) & 0xFF);
+      LPC_UART0->DLL = (unsigned char) dividerOptimal;
+      LPC_UART0->LCR &= ~DLAB_ENABLE;	// importante poner a 0
 
-        LPC_UART0->FDR = ((mulFracDivOptimal << 4) & 0xF0) | (dividerAddOptimal & 0x0F);
+      LPC_UART0->FDR = ((mulFracDivOptimal << 4) & 0xF0) | (dividerAddOptimal & 0x0F);
 
-        errorStatus = 0; //< Success
+      errorStatus = 0; //< Success
     }
 
     return errorStatus;
 }
  					   					  
-void uart0_init(int baudrate) {
-    
-    LPC_PINCON->PINSEL0|=(1<<4)|(1<<6);// Change P0.2 and P0.3 mode to TXD0 and RXD0
-  
-    LPC_UART0->LCR &= ~STOP_1_BIT & ~PARITY_NONE; // Set 8N1 mode (8 bits/dato, sin pariad, y 1 bit de stop)
-    LPC_UART0->LCR |= CHAR_8_BIT;
-
-    uart0_set_baudrate(baudrate);// Set the baud rate
-    
-     
-    LPC_UART0->IER = THRE_IRQ_ENABLE|RBR_IRQ_ENABLE;// Enable UART TX and RX interrupt (for LPC17xx UART)   
-    NVIC_EnableIRQ(UART0_IRQn);// Enable the UART interrupt (for Cortex-CM3 NVIC)
-    NVIC_SetPriority(UART0_IRQn, 1);  
-    
+void uart0_init(int baudrate) 
+{
+  LPC_PINCON->PINSEL0|=(1<<4)|(1<<6);               // Change P0.2 and P0.3 mode to TXD0 and RXD0
+  LPC_UART0->LCR &= ~STOP_1_BIT & ~PARITY_NONE;     // Set 8N1 mode (8 bits/dato, sin pariad, y 1 bit de stop)
+  LPC_UART0->LCR |= CHAR_8_BIT;
+  uart0_set_baudrate(baudrate);                     // Set the baud rate
+  LPC_UART0->IER = THRE_IRQ_ENABLE|RBR_IRQ_ENABLE;  // Enable UART TX and RX interrupt (for LPC17xx UART).   
+  NVIC_EnableIRQ(UART0_IRQn);                       // Enable the UART interrupt (for Cortex-CM3 NVIC).
+  NVIC_SetPriority(UART0_IRQn, 1);                  // Assign priority 1 to the UART.
 }
 

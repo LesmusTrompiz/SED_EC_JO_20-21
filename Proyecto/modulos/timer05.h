@@ -1,4 +1,4 @@
-// Preprocessor Directives to include the library only once
+// Preprocessor Directives to include the library only once:
 #ifndef _TIMER05
 #define _TIMER05
 
