@@ -6,3 +6,4 @@
 .\objs\servo.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmInstr.h
 .\objs\servo.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmFunc.h
 .\objs\servo.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\objs\servo.o: modulos\state.h

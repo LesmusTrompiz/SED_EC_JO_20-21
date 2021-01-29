@@ -6,8 +6,8 @@
 .\objs\main.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmFunc.h
 .\objs\main.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
 .\objs\main.o: modulos/servo.h
-.\objs\main.o: modulos/UTS.h
 .\objs\main.o: modulos/state.h
+.\objs\main.o: modulos/UTS.h
 .\objs\main.o: modulos/dac.h
 .\objs\main.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h
 .\objs\main.o: modulos/uart.h

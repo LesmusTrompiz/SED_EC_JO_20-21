@@ -41,7 +41,7 @@
 
 // Global variables:
 struct sonar_status sonar;                            // Struct that contais the state of the sonar.
-uint16_t samples[N_samples];  									      // Array that contains the samples of the DAC signal. 
+uint16_t samples[N_SAMPLES];  									      // Array that contains the samples of the DAC signal. 
 
 void config_priorities(void)
 {
