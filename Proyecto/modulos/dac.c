@@ -58,10 +58,11 @@ void TIMER1_IRQHandler(void)
     the sample period. This handles
     changes the value of the DAC. 
   */
-  static char indice_muestra =0;
+  static char index = 0;
   LPC_TIM1->IR|=(1<<0);														    // Clear the interruption flag of the timer.
-  LPC_DAC->DACR=samples[indice_muestra++]<<6;		    // Change the value of the DAC.
-  if(indice_muestra == N_SAMPLES -1 )                 // If we go through all the samples 
-    indice_muestra = 0;                               // Restart from the begining
+  LPC_DAC->DACR=samples[index++]<<6;		              // Change the value of the DAC.
+  
+  if(index == N_SAMPLES -1 )                          // If we go through all the samples 
+    index = 0;                                        // Restart from the begining
 }
 
