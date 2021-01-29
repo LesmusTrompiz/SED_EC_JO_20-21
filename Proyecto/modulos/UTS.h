@@ -4,7 +4,7 @@
 #define Fpclk 25e6	     // Fcpu/4 (defecto despues del reset)
 #define TH_UTS 10e-6     // T
 #define UMBRAL 100       // T
-#define N_MUESTRAS 32    // T
+#define N_samples 32    // T
 
 
 

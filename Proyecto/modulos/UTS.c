@@ -90,7 +90,7 @@ void TIMER3_IRQHandler(void)
 		{  
 			LPC_TIM1->MR0  = (Fpclk                         //    New frecuency calculation.
             / (5000 - sonar.distance * 10)
-            / N_MUESTRAS -1);
+            / N_samples -1);
 			LPC_TIM1->TCR|=(1<<1);
 			LPC_TIM1->TCR &=~(1<<1);                        //    Clear the reset bit of the timer in charge of the DAC.
 			LPC_TIM1->TCR|=(1<<0);                          //    The TC of the timer in charge of the DAC starts counting.

@@ -3,13 +3,13 @@
 #define _SONARSTATUS
 
 
-#define ST_SETUP      0			                          // sonar.state inicial		
-#define ST_MANUAL     1			                          // sonar.state manual
-#define ST_AUTOMATICO 2			                          // sonar.state automático
-#define ST_TEST 			3			                          // Modo para probar nuevas funcionalidades
-#define N_MUESTRAS    32                              // Numero de muestras en la señal sinusoidal
-#define POSITIVO      0			                          // sonar.f_block_move del servo en sentido horario.
-#define NEGATIVO      1			                          // sonar.f_block_move del servo en sentido antihorario.
+#define ST_SETUP       0			                        // sonar.state inicial		
+#define ST_MANUAL      1			                        // sonar.state manual
+#define ST_AUTOMATICO  2			                        // sonar.state automático
+#define ST_TEST 			 3			                        // Modo para probar nuevas funcionalidades
+#define N_SAMPLES     32                              // Total number of samples of the sinusoidal signal
+#define POSITIVO       0			                        // sonar.f_block_move del servo en sentido horario.
+#define NEGATIVO       1			                        // sonar.f_block_move del servo en sentido antihorario.
 
 struct sonar_status
 {

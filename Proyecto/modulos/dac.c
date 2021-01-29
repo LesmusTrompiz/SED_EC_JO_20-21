@@ -44,7 +44,7 @@ void generate_samples(void)
 
   int t;  
   for(t=0; t < N_SAMPLES; t++) 
-    muestras[t]= (uint16_t)(1023 *                    // Calculate the corresponding sample of the sine
+    samples[t]= (uint16_t)(1023 *                    // Calculate the corresponding sample of the sine
         (0.5 + 0.5 * sin(2*PI*t/N_SAMPLES)));		    
 } 
 
@@ -60,7 +60,7 @@ void TIMER1_IRQHandler(void)
   */
   static char indice_muestra =0;
   LPC_TIM1->IR|=(1<<0);														    // Clear the interruption flag of the timer.
-  LPC_DAC->DACR=muestras[indice_muestra++]<<6;		    // Change the value of the DAC.
+  LPC_DAC->DACR=samples[indice_muestra++]<<6;		    // Change the value of the DAC.
   if(indice_muestra == N_SAMPLES -1 )                 // If we go through all the samples 
     indice_muestra = 0;                               // Restart from the begining
 }

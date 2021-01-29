@@ -7,3 +7,4 @@
 .\objs\dac.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmFunc.h
 .\objs\dac.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
 .\objs\dac.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h
+.\objs\dac.o: modulos\state.h
