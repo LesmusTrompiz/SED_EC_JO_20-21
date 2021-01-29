@@ -14,3 +14,4 @@ void config_servo(void);                              // Enables the PWM, the ou
 void set_servo(float grados);                         // Moves the servo to the position passed in the argument.
 
 #endif 
+

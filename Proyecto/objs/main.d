@@ -7,10 +7,13 @@
 .\objs\main.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
 .\objs\main.o: modulos/servo.h
 .\objs\main.o: modulos/state.h
+.\objs\main.o: modulos/timer05.h
 .\objs\main.o: modulos/UTS.h
+.\objs\main.o: modulos/keys.h
+.\objs\main.o: modulos/uart.h
+.\objs\main.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\objs\main.o: modulos/dac.h
 .\objs\main.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h
-.\objs\main.o: modulos/uart.h
 .\objs\main.o: modulos/screen.h
-.\objs\main.o: modulos/GLCD/GLCD.h
 .\objs\main.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\objs\main.o: modulos/GLCD/GLCD.h

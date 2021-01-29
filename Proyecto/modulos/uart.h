@@ -7,7 +7,9 @@
  *  Authotr E.C.R and J.O.P-J
  */
 
-// Original
+/////////////////////////////////
+//////////// Original ///////////
+/////////////////////////////////
 // Preprocessor Directives to include the library only once:
 #ifndef UART_H_
 #define UART_H_
@@ -29,11 +31,14 @@
 extern void uart0_init(int baudrate);
 extern void tx_cadena_UART0(char *ptr);
 
-// Modified for the proyect:
+/////////////////////////////////
+// Modified for the proyect:	///
+/////////////////////////////////
 
 // Necessary libraries:
 #include <LPC17xx.h>
 #include "state.h"
+#include <stdlib.h>
 
 // New defines
 #define UART_BAUDRATE  9600                           // Selected baudrate

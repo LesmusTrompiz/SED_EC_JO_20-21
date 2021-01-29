@@ -30,6 +30,8 @@
 
 // Own libraries:
 #include "modulos/servo.h"
+#include "modulos/timer05.h"
+#include "modulos/keys.h"
 #include "modulos/UTS.h"
 #include "modulos/dac.h"
 #include "modulos/uart.h"
@@ -95,7 +97,7 @@ int main(void)
   set_servo(0);                                       // Initialize the servo pose
   
   
-  while(1)
+  while(1)                                            // Main loop:
 	{
     sonar.f_block_keys = 0;                           // Clear the flag that blocks keys funcionalities.
     update_screen(&sonar);                            // Update the screen with the new status of the sonar.

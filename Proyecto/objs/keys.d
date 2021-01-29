@@ -8,4 +8,5 @@
 .\objs\keys.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
 .\objs\keys.o: modulos\state.h
 .\objs\keys.o: modulos\uart.h
+.\objs\keys.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdlib.h
 .\objs\keys.o: modulos\servo.h
