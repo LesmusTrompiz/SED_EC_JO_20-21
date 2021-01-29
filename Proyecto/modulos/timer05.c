@@ -54,7 +54,7 @@ void TIMER0_IRQHandler()
       sonar.state = ST_MANUAL;                        // Change the mode to manual mode.
       break;
 
-    case(ST_AUTOMATIC):                              // If the sonar is in Automatic mode:
+    case(ST_AUTOMATIC):                               // If the sonar is in Automatic mode:
       UTS_trigger();                                  // Make a measure with the UTS
       ciclo++;                                        // Increase the number of cycles
       
