@@ -44,7 +44,7 @@ void generate_samples(void)
 
   int t;  
   for(t=0; t < N_SAMPLES; t++) 
-    samples[t]= (uint16_t)(1023 *                    // Calculate the corresponding sample of the sine
+    samples[t]= (uint16_t)(1023 *                     // Calculate the corresponding sample of the sine
         (0.5 + 0.5 * sin(2*PI*t/N_SAMPLES)));		    
 } 
 
