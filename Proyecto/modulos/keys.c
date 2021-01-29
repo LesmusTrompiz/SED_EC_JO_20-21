@@ -48,10 +48,10 @@ void EINT0_IRQHandler()
     switch(sonar.state)                               
     {
       case(ST_AUTOMATICO):                            // If we are in aumatic mode:
-        sonar.f_block_move ^= 1;                      //  Toggle the f_block_move flag.
+        sonar.f_block_move ^= 1;                      // Toggle the f_block_move flag.
         break;
       case(ST_MANUAL):                                // If we are in manual mode:
-        sonar.f_block_measure ^= 1;			              //  Toggle the f_block_measure flag.
+        sonar.f_block_measure ^= 1;			              // Toggle the f_block_measure flag.
         break;
     }
     sonar.f_block_keys = 1;                           // Raise the flag to indicate that we have alredy 
@@ -87,19 +87,19 @@ void EINT1_IRQHandler()
   switch(sonar.state)
   {
     case(ST_SETUP):                                   // If we are in Setup mode:
-      sonar.state = ST_AUTOMATICO;                    //  Change the mode to autatic mode.
-			uart0_init(UART_BAUDRATE);                      //  Configure the UART protocol.
+      sonar.state = ST_AUTOMATICO;                    // Change the mode to autatic mode.
+			uart0_init(UART_BAUDRATE);                      // Configure the UART protocol.
       break;
 
     case(ST_MANUAL):                                  // If we are in Manual mode:
       if( 
-        (!((sonar.servo_pose + 10) > 180))            //  If the sonar does not exceed the maximun angle   
-        &&                                            //  in the next move AND is the first time that
-        !(sonar.f_block_keys))                        //  interrupts this cycle?	
+        (!((sonar.servo_pose + 10) > 180))            // If the sonar does not exceed the maximun angle   
+        &&                                            // in the next move AND is the first time that
+        !(sonar.f_block_keys))                        // interrupts this cycle?	
       {	
-        set_servo(sonar.servo_pose += 10);            //    Increase the servo pose by 10 degrees.
-        sonar.f_block_keys = 1;	                      //    Raise the flag to indicate that we have alredy
-      }                                               //    interrupted this cycle.
+        set_servo(sonar.servo_pose += 10);            // Increase the servo pose by 10 degrees.
+        sonar.f_block_keys = 1;	                      // Raise the flag to indicate that we have alredy
+      }                                               // interrupted this cycle.
       break;
   }
 }
@@ -133,7 +133,7 @@ void EINT2_IRQHandler()
 	  !(sonar.f_block_keys)                             // is the first time that interrupts this cycle
 	)
 	{	
-    set_servo(sonar.servo_pose -= 10);                //  Decrease the servo pose by 10 degrees.
-    sonar.f_block_keys = 1;                           //  Raise the flag to indicate that we have alredy
-  }                                                   //  interrupted this cycle.
+    set_servo(sonar.servo_pose -= 10);                // Decrease the servo pose by 10 degrees.
+    sonar.f_block_keys = 1;                           // Raise the flag to indicate that we have alredy
+  }                                                   // interrupted this cycle.
 }
