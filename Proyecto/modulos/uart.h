@@ -24,7 +24,7 @@
 #define FIFO_ENABLE                     (1 << 0)
 #define RBR_IRQ_ENABLE                  (1 << 0)
 #define THRE_IRQ_ENABLE                 (1 << 1)
-#define UART_LSR_THRE   				        (1 << 5)
+#define UART_LSR_THRE   				(1 << 5)
 #define RDA_INTERRUPT                   (2 << 1)
 #define CTI_INTERRUPT                   (6 << 1)
 
@@ -38,6 +38,8 @@ extern void tx_cadena_UART0(char *ptr);
 // Necessary libraries:
 #include <LPC17xx.h>
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 #include "state.h"
 
 
@@ -47,5 +49,7 @@ extern void tx_cadena_UART0(char *ptr);
 // Necessary global variable:
 extern struct sonar_status sonar;                     // Sonar state is modified by timer 0.5 handler.
 
+// Avaible functions that can be called:
+void update_uart(void);                               // Sent the state of the sonar via UART. 
 
 #endif /* UART_H_ */

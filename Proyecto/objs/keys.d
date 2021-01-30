@@ -9,4 +9,6 @@
 .\objs\keys.o: modulos\state.h
 .\objs\keys.o: modulos\uart.h
 .\objs\keys.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\objs\keys.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\string.h
+.\objs\keys.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdio.h
 .\objs\keys.o: modulos\servo.h

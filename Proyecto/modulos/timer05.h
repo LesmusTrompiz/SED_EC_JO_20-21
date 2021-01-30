@@ -6,6 +6,7 @@
 #include <LPC17xx.H>
 #include "state.h"
 #include "UTS.h"
+#include "uart.h"
 #include "servo.h"
 
 // Necessary global variable:

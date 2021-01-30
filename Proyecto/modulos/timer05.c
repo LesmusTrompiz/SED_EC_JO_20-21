@@ -57,7 +57,6 @@ void TIMER0_IRQHandler()
 
     case(ST_AUTOMATIC):                               // If the sonar is in Automatic mode:
       cycle++;                                        // Increase the number of cycles
-      
       if(!sonar.f_block_measure)                      // If the UTS is allowed to measure:
         UTS_trigger();                                // Make a measure with the UTS
       
@@ -93,6 +92,7 @@ void TIMER0_IRQHandler()
         }
         cycle = 0;                                    // Reset the cycle counter.
       }
+
       break;
 		
     case(ST_MANUAL):

@@ -23,7 +23,7 @@ void config_UTS(void)
   LPC_TIM3-> PR = 0;                                  // No prescale -> 25MHz.
   
   // Match configuration:
-  LPC_TIM3->MR0 = Fpclk * TH_UTS/2 -1;                // Match at 5us -> on/off.
+  LPC_TIM3->MR0 = Fpclk * TH_UTS -1;                  // Match at 10us -> on/off.
   LPC_TIM3->EMR|=(1<<0)|(3<<4);                       // When the time counter reachs MR0 the P0.10 toggles.
 	LPC_TIM3->MCR |=3; 						                      // When the time counter reachs MR0 interrupts and reset the Timer Counter.
   
@@ -63,7 +63,7 @@ void TIMER3_IRQHandler(void)
   if(((LPC_TIM3->IR>>0)&1))                           // If the interruption is caused by the Match (First part of the trigger signal):    
   { 
     LPC_TIM3->IR = 1<<0;                              // Clear the flag of the match interrupt
-    LPC_TIM3-> MCR &= ~(3<<0);                        // When the TC reachs the MR0 it doesn´t interrupt.
+    LPC_TIM3-> MCR &= ~(3<<0);                        // When the TC reachs the MR0 it doesn´t interrupt and does not reset.
   }
   
   else if((LPC_TIM3->CCR >> 0) & 1)                   // If the interruption is caused by a rising edge in the capture (start of the echo signal).    

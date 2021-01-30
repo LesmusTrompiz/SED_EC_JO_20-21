@@ -57,12 +57,14 @@ void config_priorities(void)
     in its own configuration function.
 
 	*/
-  NVIC_SetPriority(TIMER3_IRQn,0);								    // UTS        -> 0.
-  NVIC_SetPriority(TIMER0_IRQn,1);								    // 0.5 Timer	-> 1.
-  NVIC_SetPriority(EINT0_IRQn, 2);	    						  // KEY ISP    -> 2.
-  NVIC_SetPriority(EINT1_IRQn, 3);									  // KEY 1      -> 3.
-  NVIC_SetPriority(EINT2_IRQn, 4);									  // KEY 2      -> 4.
-	NVIC_SetPriority(TIMER1_IRQn,5);				   			    // DAC        -> 5.
+	NVIC_SetPriorityGrouping(3);				   			        // Only one bit is needed for the subpriority
+  NVIC_SetPriority(TIMER3_IRQn,1);								    // UTS        -> 0.
+  NVIC_SetPriority(TIMER0_IRQn,2);								    // 0.5 Timer	-> 1.
+  NVIC_SetPriority(EINT0_IRQn, 4);	    						  // KEY ISP    -> 2.
+  NVIC_SetPriority(EINT1_IRQn, 6);									  // KEY 1      -> 3.
+  NVIC_SetPriority(EINT2_IRQn, 7);									  // KEY 2      -> 4.
+	NVIC_SetPriority(TIMER1_IRQn,10);				   			    // DAC        -> 5.
+
 }
 
 int main(void)
@@ -94,12 +96,13 @@ int main(void)
   generate_samples();                                 // Generate the samples of the sinusoidal signal of the DAC               
   LCD_Clear(Blue);                                    // Fill the screen with blue
   set_servo(0);                                       // Initialize the servo pose
-  
-  
+
   while(1)                                            // Main loop:
 	{
     sonar.f_block_keys = 0;                           // Clear the flag that blocks keys funcionalities.
     update_screen(&sonar);                            // Update the screen with the new status of the sonar.
-	}
+    if(sonar.state == ST_AUTOMATIC)                   // If we are in automatic mode
+      update_uart();                                  // We update the info via UART
+  }
   
 }	

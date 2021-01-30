@@ -92,6 +92,37 @@ void analyze_msg(void)
     tx_cadena_UART0("Unexpected message"); 
 }
 
+void update_uart(void)
+{
+  /*
+  update_uart :: void -> void
+
+  Sent the state of the sonar
+  via UART. 
+  */
+  static char cycle = 0; 
+  if (cycle == 15)
+  {
+    char msg [30] = "Automatic mode \n";              // Variable that will contains the string with the state of the sonar.
+    tx_cadena_UART0(msg);                             // Sent the msg
+    while(!tx_completa);                              // Wait for the message to be sent
+
+    sprintf(msg, "Servo pose  %d \n",                 // Format the string with the servo pose.
+      sonar.servo_pose);
+    tx_cadena_UART0(msg);                             // Sent the msg          
+    while(!tx_completa);                              // Wait for the message to be sent
+
+
+    sprintf(msg, "Measured distance  %3.2f cm \n ",   // Format the string with the measured distance.
+      sonar.distance);
+    tx_cadena_UART0(msg);                             // Sent the msg
+    while(!tx_completa);                              // Wait for the message to be sent
+    cycle = 0;
+  }
+  else
+    cycle++; 
+}
+
 void UART0_IRQHandler(void) {
 	/*
     UART0_IRQHandler :: void -> void
@@ -207,6 +238,6 @@ void uart0_init(int baudrate)
   uart0_set_baudrate(baudrate);                     // Set the baud rate
   LPC_UART0->IER = THRE_IRQ_ENABLE|RBR_IRQ_ENABLE;  // Enable UART TX and RX interrupt (for LPC17xx UART).   
   NVIC_EnableIRQ(UART0_IRQn);                       // Enable the UART interrupt (for Cortex-CM3 NVIC).
-  NVIC_SetPriority(UART0_IRQn, 1);                  // Assign priority 1 to the UART.
+  NVIC_SetPriority(UART0_IRQn, 0);                  // Assign priority 1 to the UART.
 }
 

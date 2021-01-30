@@ -29,3 +29,740 @@ Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf"
 Erase Done.
 Programming Done.
 Verify OK.
+Build target 'Target 1'
+compiling main.c...
+compiling uart.c...
+modulos\uart.c(106): warning:  #223-D: function "sprintf" declared implicitly
+modulos\uart.c(108): warning:  #223-D: function "strcat" declared implicitly
+modulos\uart.c(118): error:  #169: expected a declaration
+modulos\uart.c(142): warning:  #12-D: parsing restarts here after previous syntax error
+modulos\uart.c(143): error:  #169: expected a declaration
+modulos\uart.c(144): error:  #169: expected a declaration
+modulos\uart.c(146): error:  #169: expected a declaration
+modulos\uart.c(201): warning:  #12-D: parsing restarts here after previous syntax error
+modulos\uart.c(202): error:  #169: expected a declaration
+modulos\uart.c(204): error:  #169: expected a declaration
+modulos\uart.c(209): warning:  #12-D: parsing restarts here after previous syntax error
+modulos\uart.c(210): error:  #169: expected a declaration
+modulos\uart.c(224): warning:  #12-D: parsing restarts here after previous syntax error
+modulos\uart.c(225): error:  #169: expected a declaration
+modulos\uart.c(237): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
+compiling timer05.c...
+modulos\timer05.c(95): warning:  #223-D: function "update_uart" declared implicitly
+".\objs\SED.axf" - 8 Errors, 8 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling uart.c...
+modulos\uart.c(106): warning:  #223-D: function "sprintf" declared implicitly
+modulos\uart.c(108): warning:  #223-D: function "strcat" declared implicitly
+linking...
+Program Size: Code=27436 RO-data=2892 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 2 Warning(s).
+Rebuild target 'Target 1'
+assembling startup_LPC17xx.s...
+compiling system_LPC17xx.c...
+compiling main.c...
+compiling dac.c...
+compiling servo.c...
+compiling uart.c...
+compiling UTS.c...
+compiling GLCD.c...
+compiling AsciiLib.c...
+compiling keys.c...
+compiling timer05.c...
+modulos\timer05.c(95): warning:  #223-D: function "update_uart" declared implicitly
+compiling screen.c...
+linking...
+Program Size: Code=27436 RO-data=2892 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Rebuild target 'Target 1'
+assembling startup_LPC17xx.s...
+compiling system_LPC17xx.c...
+compiling main.c...
+compiling dac.c...
+compiling servo.c...
+compiling uart.c...
+compiling UTS.c...
+compiling GLCD.c...
+compiling AsciiLib.c...
+compiling keys.c...
+compiling timer05.c...
+modulos\timer05.c(95): warning:  #223-D: function "update_uart" declared implicitly
+compiling screen.c...
+linking...
+Program Size: Code=27436 RO-data=2892 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+modulos/keys.h(12): error:  #85: invalid storage class for a parameter
+modulos/keys.h(12): error:  #99: a declaration here must declare a parameter
+modulos/keys.h(15): error:  #99: a declaration here must declare a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(110): error:  #85: invalid storage class for a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(110): error:  #1018: ARM function qualifiers not permitted on this declaration/definition
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(110): error:  #99: a declaration here must declare a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(111): error:  #85: invalid storage class for a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(111): error:  #1018: ARM function qualifiers not permitted on this declaration/definition
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(111): error:  #99: a declaration here must declare a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(119): error:  #85: invalid storage class for a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(119): error:  #1018: ARM function qualifiers not permitted on this declaration/definition
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(119): error:  #99: a declaration here must declare a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(120): error:  #85: invalid storage class for a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(120): error:  #1018: ARM function qualifiers not permitted on this declaration/definition
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(120): error:  #99: a declaration here must declare a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(124): error:  #238: invalid specifier on a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(124): error:  #1018: ARM function qualifiers not permitted on this declaration/definition
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(124): error:  #99: a declaration here must declare a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h: Error:  #325: inline specifier allowed on function declarations only
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(125): error:  #65: expected a ";"
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(224): error:  #85: invalid storage class for a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(224): error:  #99: a declaration here must declare a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(228): error:  #85: invalid storage class for a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(228): error:  #99: a declaration here must declare a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(232): error:  #85: invalid storage class for a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(232): error:  #99: a declaration here must declare a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(238): error:  #85: invalid storage class for a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(238): error:  #1018: ARM function qualifiers not permitted on this declaration/definition
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(238): error:  #99: a declaration here must declare a parameter
+E:\Programas\Keil\ARM\ARMCC\bin\..\include\math.h(242): error:  #85: invalid storage class for a parameter
+".\objs\SED.axf" - 30 Errors, 0 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling main.c...
+compiling uart.c...
+compiling keys.c...
+linking...
+Program Size: Code=27436 RO-data=2892 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Rebuild target 'Target 1'
+assembling startup_LPC17xx.s...
+compiling system_LPC17xx.c...
+compiling main.c...
+compiling dac.c...
+compiling servo.c...
+compiling uart.c...
+compiling UTS.c...
+compiling GLCD.c...
+compiling AsciiLib.c...
+compiling keys.c...
+compiling timer05.c...
+modulos\timer05.c(95): warning:  #223-D: function "update_uart" declared implicitly
+compiling screen.c...
+linking...
+Program Size: Code=27436 RO-data=2932 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling uart.c...
+compiling timer05.c...
+linking...
+Program Size: Code=27436 RO-data=2932 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27432 RO-data=2928 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+modulos\uart.c(107): error:  #65: expected a ";"
+".\objs\SED.axf" - 1 Errors, 0 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27520 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27520 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27508 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+modulos\uart.c(104): warning:  #177-D: variable "aux" was declared but never referenced
+linking...
+Program Size: Code=27392 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27520 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+modulos\uart.c(104): warning:  #177-D: variable "aux" was declared but never referenced
+linking...
+Program Size: Code=27400 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27520 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+modulos\uart.c(104): warning:  #177-D: variable "aux" was declared but never referenced
+linking...
+Program Size: Code=27400 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+modulos\uart.c(104): warning:  #177-D: variable "aux" was declared but never referenced
+linking...
+Program Size: Code=27400 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Rebuild target 'Target 1'
+assembling startup_LPC17xx.s...
+compiling system_LPC17xx.c...
+compiling main.c...
+compiling dac.c...
+compiling servo.c...
+compiling uart.c...
+modulos\uart.c(104): warning:  #177-D: variable "aux" was declared but never referenced
+compiling UTS.c...
+compiling GLCD.c...
+compiling AsciiLib.c...
+compiling keys.c...
+compiling timer05.c...
+compiling screen.c...
+linking...
+Program Size: Code=27400 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: Code=27400 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+modulos\uart.c(104): warning:  #177-D: variable "aux" was declared but never referenced
+linking...
+Program Size: Code=27400 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27520 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Rebuild target 'Target 1'
+assembling startup_LPC17xx.s...
+compiling system_LPC17xx.c...
+compiling main.c...
+compiling dac.c...
+compiling servo.c...
+compiling uart.c...
+compiling UTS.c...
+compiling GLCD.c...
+compiling AsciiLib.c...
+compiling keys.c...
+compiling timer05.c...
+compiling screen.c...
+linking...
+Program Size: Code=27520 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=27520 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27460 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Rebuild target 'Target 1'
+assembling startup_LPC17xx.s...
+compiling system_LPC17xx.c...
+compiling main.c...
+compiling dac.c...
+compiling servo.c...
+compiling uart.c...
+compiling UTS.c...
+compiling GLCD.c...
+compiling AsciiLib.c...
+compiling keys.c...
+compiling timer05.c...
+compiling screen.c...
+linking...
+Program Size: Code=27460 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling uart.c...
+compiling keys.c...
+compiling timer05.c...
+linking...
+Program Size: Code=27468 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+main.c(66): warning:  #223-D: function "NVIC_SetPriorityGr" declared implicitly
+compiling timer05.c...
+linking...
+.\objs\SED.axf: Error: L6218E: Undefined symbol NVIC_SetPriorityGr (referred from main.o).
+".\objs\SED.axf" - 1 Errors, 1 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=27464 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+compiling uart.c...
+compiling timer05.c...
+linking...
+Program Size: Code=27456 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=23548 RO-data=2660 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=27448 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling UTS.c...
+linking...
+Program Size: Code=27448 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+compiling UTS.c...
+linking...
+Program Size: Code=27456 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling UTS.c...
+linking...
+Program Size: Code=27456 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27464 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27572 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27572 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+linking...
+Program Size: Code=27572 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+linking...
+Program Size: Code=27572 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=27580 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=27564 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+compiling uart.c...
+linking...
+Program Size: Code=27576 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+modulos\uart.c(103): warning:  #550-D: variable "cycle" was set but never used
+linking...
+Program Size: Code=27556 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+modulos\uart.c(103): warning:  #550-D: variable "cycle" was set but never used
+linking...
+Program Size: Code=27556 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+modulos\uart.c(103): warning:  #550-D: variable "cycle" was set but never used
+linking...
+Program Size: Code=27500 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+modulos\uart.c(103): warning:  #177-D: variable "cycle" was declared but never referenced
+linking...
+Program Size: Code=27488 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=27472 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=27488 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+modulos\uart.c(103): warning:  #177-D: variable "cycle" was declared but never referenced
+linking...
+Program Size: Code=27488 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+main.c(40): error:  #79: expected a type specifier
+main.c(40): warning:  #77-D: this declaration has no storage class or type specifier
+main.c(40): error:  #147: declaration is incompatible with "void NVIC_SetPriorityGrouping(uint32_t)" (declared at line 1291 of "E:\Programas\Keil\ARM\CMSIS\Include\core_cm3.h")
+".\objs\SED.axf" - 2 Errors, 1 Warning(s).
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=27524 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=27488 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=27472 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: Code=27512 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+compiling uart.c...
+modulos\uart.c(103): warning:  #177-D: variable "cycle" was declared but never referenced
+linking...
+Program Size: Code=27524 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+modulos\uart.c(103): warning:  #177-D: variable "cycle" was declared but never referenced
+linking...
+Program Size: Code=27516 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27544 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+linking...
+Program Size: Code=27544 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27544 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27556 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27556 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+modulos\uart.c(113): warning:  #2748-D: null argument provided for parameter marked with attribute "nonnull"
+linking...
+Program Size: Code=27564 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+modulos\uart.c(113): warning:  #2748-D: null argument provided for parameter marked with attribute "nonnull"
+linking...
+Program Size: Code=27552 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+modulos\uart.c(107): warning:  #177-D: variable "aux" was declared but never referenced
+linking...
+Program Size: Code=27540 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: Code=27540 RO-data=2836 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27608 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27608 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27608 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling uart.c...
+linking...
+Program Size: Code=27608 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+compiling uart.c...
+linking...
+Program Size: Code=27608 RO-data=2840 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+compiling main.c...
+compiling uart.c...
+linking...
+Program Size: Code=27516 RO-data=2868 RW-data=40 ZI-data=728  
+".\objs\SED.axf" - 0 Errors, 0 Warning(s).
+Load "E:\\Github\\SED_20-21_JO_EVA\\Proyecto\\objs\\SED.axf" 
+Erase Done.
+Programming Done.
+Verify OK.
