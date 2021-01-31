@@ -241,6 +241,6 @@ void uart0_init(int baudrate)
   uart0_set_baudrate(baudrate);                     // Set the baud rate
   LPC_UART0->IER = THRE_IRQ_ENABLE|RBR_IRQ_ENABLE;  // Enable UART TX and RX interrupt (for LPC17xx UART).   
   NVIC_EnableIRQ(UART0_IRQn);                       // Enable the UART interrupt (for Cortex-CM3 NVIC).
-  NVIC_SetPriority(UART0_IRQn, 0);                  // Assign priority 1 to the UART.
+  NVIC_SetPriority(UART0_IRQn, 0);                  // Assign priority 0 to the UART.
 }
 

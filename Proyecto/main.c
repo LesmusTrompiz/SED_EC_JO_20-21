@@ -51,14 +51,14 @@ void config_priorities(void)
     in its own configuration function.
 
 	*/
-	NVIC_SetPriorityGrouping(3);				   			        // Only one bit is needed for the subpriority
-  NVIC_SetPriority(TIMER3_IRQn,1);								    // UTS        -> 0.
-  NVIC_SetPriority(TIMER0_IRQn,2);								    // 0.5 Timer	-> 1.
-  NVIC_SetPriority(EINT0_IRQn, 4);	    						  // KEY ISP    -> 2.
-  NVIC_SetPriority(EINT1_IRQn, 6);									  // KEY 1      -> 3.
-  NVIC_SetPriority(EINT2_IRQn, 7);									  // KEY 2      -> 4.
-	NVIC_SetPriority(TIMER1_IRQn,10);				   			    // DAC        -> 5.
 
+	NVIC_SetPriorityGrouping(3);				   			        // Only one bit is needed for the subpriority
+  NVIC_SetPriority(TIMER3_IRQn,1);								    // UTS        -> (0,1).
+  NVIC_SetPriority(TIMER0_IRQn,2);								    // 0.5 Timer	-> (1,0).
+  NVIC_SetPriority(EINT0_IRQn, 4);	    						  // KEY ISP    -> (2,0).
+  NVIC_SetPriority(EINT1_IRQn, 6);									  // KEY 1      -> (3,0).
+  NVIC_SetPriority(EINT2_IRQn, 7);									  // KEY 2      -> (3,1).
+	NVIC_SetPriority(TIMER1_IRQn,8);				   			    // DAC        -> (4,0).
 }
 
 int main(void)
