@@ -92,7 +92,6 @@ void TIMER0_IRQHandler()
         }
         cycle = 0;                                    // Reset the cycle counter.
       }
-
       break;
 		
     case(ST_MANUAL):
