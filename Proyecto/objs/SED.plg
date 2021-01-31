@@ -7,15 +7,3 @@ E:\Github\SED_20-21_JO_EVA\Proyecto\SED.uvproj
 Project File Date:  01/29/2021
 
 <h2>Output:</h2>
-Build target 'Target 1'
-compiling screen.c...
-modulos\screen.c(18): error:  #137: expression must be a modifiable lvalue
-modulos\screen.c(22): error:  #137: expression must be a modifiable lvalue
-modulos\screen.c(26): error:  #137: expression must be a modifiable lvalue
-".\objs\SED.axf" - 3 Errors, 0 Warning(s).
-Target not created
-Build target 'Target 1'
-compiling screen.c...
-linking...
-Program Size: Code=27548 RO-data=2868 RW-data=40 ZI-data=728  
-".\objs\SED.axf" - 0 Errors, 0 Warning(s).

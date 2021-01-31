@@ -16,7 +16,6 @@ void config_DAC(void)
 	LPC_DAC->DACCTRL      = 0;				                  // DMA not enabled
 }
 
-
 void config_timer_dac(void)
 {
   /*

@@ -1,7 +1,6 @@
 // Link this source code with his .h file.
 #include "servo.h"
 
-
 void config_servo(void)
 {
   /*
