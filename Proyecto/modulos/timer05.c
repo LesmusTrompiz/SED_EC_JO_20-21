@@ -9,7 +9,7 @@ void config_timer05()
     Configure the Timer0 to interrupt
     every 0.5 seconds.	
   */
-	
+
   LPC_SC->PCONP |=(1<<1);  												    // Configure the power supply.
   LPC_TIM0->PR   = 0;	  													    // No prescale -> 25MHz. 
   LPC_TIM0->MR0  = (Fpclk*0.5-1);								     	// Match at 0.5s.
