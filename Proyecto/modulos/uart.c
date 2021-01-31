@@ -38,8 +38,8 @@ void analyze_msg(void)
   static char first_time = 1;                         // Flag that indicates that it is the first time it is executed.
   int aux = 0;                                        // Auxilary variable.
   
-  if (first_time)                                     // If is the first message received, we respond 
-  {                                                   // with the instructions available:  
+  if (first_time)                                     // If is the first message received, we respond  with
+  {                                                   // the instructions available and stop measuring and moving:  
     tx_cadena_UART0("You're in automatic mode.\n"    
     "- To set resolution in degrees enter xxg"
     "(where xx are possible resolutions in degrees:"
@@ -53,6 +53,8 @@ void analyze_msg(void)
     first_time = 0;
     sonar.f_block_move = 1;
     sonar.f_block_measure = 1;
+    sonar.f_block_transmision = 1;
+
   }    
   else if(buffer[0] == 'h')                           // If the the message is help, we respond with the instructions available
     tx_cadena_UART0("You're in automatic mode.\n"    
@@ -66,11 +68,13 @@ void analyze_msg(void)
     "-To show this help message again press h\n"
     "-To stop/start sweep mode press m ");
   
-  else if(buffer[0] == 'm')                           // If the the message is move, we toggle the flag.
+  else if(buffer[0] == 'm')                           // If the the message is move, we toggle the flags of the sweep mode.
   {
     sonar.f_block_move ^= 1;
     sonar.f_block_measure ^= 1;
+    sonar.f_block_transmision ^= 1;
   }
+
   else if(buffer[1] == 's')                           // If the message is to change the servo period                 
   {
     if (buffer[0] > '0' && buffer[0] <= '3')          // We look if is a valid period.
@@ -101,7 +105,7 @@ void update_uart(void)
   via UART. 
   */
   static char cycle = 0; 
-  if (cycle == 15)
+  if (cycle == 15 && !sonar.f_block_transmision)
   {
     char msg [30] = "Automatic mode \n";              // Variable that will contains the string with the state of the sonar.
     tx_cadena_UART0(msg);                             // Sent the msg
@@ -148,7 +152,6 @@ void UART0_IRQHandler(void) {
 		if (*ptr_tx!=0) LPC_UART0->THR=*ptr_tx++;	        //  Loads a new value for being transmited.
 		else tx_completa=1;
 		break;
-
     }
 }
 

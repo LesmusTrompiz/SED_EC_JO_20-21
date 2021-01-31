@@ -29,17 +29,11 @@
 #include <LPC17xx.H>
 
 // Own libraries:
-#include "modulos/servo.h"
 #include "modulos/timer05.h"
 #include "modulos/keys.h"
-#include "modulos/UTS.h"
 #include "modulos/dac.h"
-#include "modulos/uart.h"
-#include "modulos/state.h"
 #include "modulos/screen.h"
 
-// Extern libraries:
-#include "modulos/GLCD/GLCD.h"
 
 // Global variables:
 struct sonar_status sonar;                            // Struct that contais the state of the sonar.
@@ -71,16 +65,19 @@ int main(void)
 {
 
   // Initialize the struct:
-  sonar.state            = ST_SETUP;                  // Sonar starts in Setup mode.
-  sonar.distance         = 0;							            // Sonar distancie is initialize with a zero.
-  sonar.servo_pose       = 0;                         // The servo starts at zero degrees.
-  sonar.servo_period     = 1;                         // The servo period is initialize with a period of a 0.5 seconds.
-  sonar.servo_resolution = 10;                        // The servo resolution is initialize with a resolution of 10 degrees.
-  sonar.f_block_keys     = 0;							            // The flag f_block_keys is initialize with a zero.
-  sonar.f_block_move     = 0;							            // The flag f_block_move is initialize with a zero because at beggining 
+  sonar.state               = ST_SETUP;               // Sonar starts in Setup mode.
+  sonar.distance            = 0;							        // Sonar distancie is initialize with a zero.
+  sonar.servo_pose          = 0;                      // The servo starts at zero degrees.
+  sonar.servo_period        = 1;                      // The servo period is initialize with a period of a 0.5 seconds.
+  sonar.servo_resolution    = 10;                     // The servo resolution is initialize with a resolution of 10 degrees.
+  sonar.f_block_keys        = 0;							        // The flag f_block_keys is initialize with a zero.
+  sonar.f_block_move        = 0;							        // The flag f_block_move is initialize with a zero because at beggining 
                                                       // of the automatic mode the servo can move.
-  sonar.f_block_measure  = 1;	                        // The flag f_block_measure is initialize with one because at beggining 
+  sonar.f_block_measure     = 1;                      // The flag f_block_measure is initialize with one because at beggining 
                                                       // of the manual mode the UTS can not move.	
+  sonar.f_block_transmision = 0;	                    // The flag f_block_measure is initialize with zero because at beggining 
+                                                      // the transmision from the board via uart is enable in automatic mode.
+
 	// Configure the hardware:
   config_timer05();                                  
   config_keys();

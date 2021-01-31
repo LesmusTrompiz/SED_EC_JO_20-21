@@ -29,6 +29,7 @@ struct sonar_status
   char  f_block_keys;       											    // Flag to prevent the Eints handlers being executed multiple times when the button is pressed.
   char  f_block_move;      										        // Flag that enables the movement of the servo in automatic mode, it can be modified via ISP.
   char  f_block_measure;											        // Flag that allows the distance measure in manual mode, it can be modified via ISP.
+  char  f_block_transmision;											    // Flag that allows you to send information about measurements via UART.
 };
 
 #endif
