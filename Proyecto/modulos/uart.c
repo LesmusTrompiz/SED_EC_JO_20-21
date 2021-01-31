@@ -105,7 +105,7 @@ void update_uart(void)
   via UART. 
   */
   static char cycle = 0; 
-  if (cycle == 15 && !sonar.f_block_transmision)
+  if (cycle == 15 && !sonar.f_block_transmision)      // If its time to send information and it's allow to transmit from the board.
   {
     char msg [30] = "Automatic mode \n";              // Variable that will contains the string with the state of the sonar.
     tx_cadena_UART0(msg);                             // Sent the msg
@@ -124,7 +124,7 @@ void update_uart(void)
     cycle = 0;
   }
   else
-    cycle++; 
+    cycle++;                                          // Increase the number of cycles
 }
 
 void UART0_IRQHandler(void) {
