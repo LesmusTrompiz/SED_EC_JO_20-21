@@ -1,0 +1,10 @@
+.\objs\ultrasonidos.o: modulos\ultrasonidos.c
+.\objs\ultrasonidos.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.H
+.\objs\ultrasonidos.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cm3.h
+.\objs\ultrasonidos.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\objs\ultrasonidos.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmInstr.h
+.\objs\ultrasonidos.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmFunc.h
+.\objs\ultrasonidos.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\objs\ultrasonidos.o: modulos\ultrasonidos.h
+.\objs\ultrasonidos.o: modulos\GLCD/GLCD.h
+.\objs\ultrasonidos.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdio.h

@@ -1,170 +1,105 @@
+/*                 _____ ____  _   _____    ____     ______  __
+                  / ___// __ \/ | / /   |  / __ \   / __ ) \/ /
+                  \__ \/ / / /  |/ / /| | / /_/ /  / __  |\  / 
+                 ___/ / /_/ / /|  / ___ |/ _, _/  / /_/ / / /  
+                /____/\____/_/ |_/_/  |_/_/ |_|  /_____/ /_/   
+                                                               
+                _______    _____       _________    __ _    ______ 
+               / ____/ |  / /   |     / ____/   |  / /| |  / / __ \
+              / __/  | | / / /| |    / /   / /| | / / | | / / / / /
+             / /___  | |/ / ___ |   / /___/ ___ |/ /__| |/ / /_/ / 
+            /_____/  |___/_/  |_|   \____/_/  |_/_____/___/\____/  
+                                                                   
+                                 ___    _   ______ 
+                                /   |  / | / / __ \
+                               / /| | /  |/ / / / /
+                              / ___ |/ /|  / /_/ / 
+                             /_/  |_/_/ |_/_____/  
+                                                   
+              _____ _    ________________     ____  ____  _______________
+             / /   | |  / /  _/ ____/ __ \   / __ \/ __ \/_  __/  _/__  /
+        __  / / /| | | / // // __/ / /_/ /  / / / / /_/ / / /  / /   / / 
+       / /_/ / ___ | |/ // // /___/ _, _/  / /_/ / _, _/ / / _/ /   / /__
+       \____/_/  |_|___/___/_____/_/ |_|   \____/_/ |_| /_/ /___/  /____/
+
+*/
+
+
+// Library of the LPC17.xx
 #include <LPC17xx.H>
-#include "servo.h"
-#include "UTS.h"
-#include "GLCD/GLCD.h"
-#include "stdio.h"
+
+// Own libraries:
+#include "modulos/timer05.h"
+#include "modulos/keys.h"
+#include "modulos/dac.h"
+#include "modulos/screen.h"
 
 
+// Global variables:
+struct sonar_status sonar;                            // Struct that contais the state of the sonar.
+uint16_t samples[N_SAMPLES];  									      // Array that contains the samples of the DAC signal. 
 
-#define ST_SETUP      0
-#define ST_MANUAL     1
-#define ST_AUTOMATICO 2
-
-#define POSITIVO      0
-#define NEGATIVO      1
-
-
-// La lista de la verguenza 
-int  posicion = 0;
-char flag_bloqueante = 0;
-char estado = ST_SETUP; 									// Variable de estado
-char movimiento = 1;
-char mediciones = 0;
-float distancia = 0;
-
-void config_botones(void)
+void config_priorities(void)
 {
-  LPC_PINCON->PINSEL4|=(1<<20)|(1<<22)|(1<<24);
-  NVIC_EnableIRQ(EINT0_IRQn);
-  NVIC_EnableIRQ(EINT1_IRQn);
-  NVIC_EnableIRQ(EINT2_IRQn);
+	/*
+		config_priorities :: void -> void
+    
+    Set the priorities of all the 
+    interruptions that are used in
+    the project, except the priority 
+    of the UART that is configured 
+    in its own configuration function.
+
+	*/
+
+	NVIC_SetPriorityGrouping(3);				   			        // Only one bit is needed for the subpriority
+  NVIC_SetPriority(TIMER3_IRQn,1);								    // UTS        -> (0,1).
+  NVIC_SetPriority(TIMER0_IRQn,2);								    // 0.5 Timer	-> (1,0).
+  NVIC_SetPriority(EINT0_IRQn, 4);	    						  // KEY ISP    -> (2,0).
+  NVIC_SetPriority(EINT1_IRQn, 6);									  // KEY 1      -> (3,0).
+  NVIC_SetPriority(EINT2_IRQn, 7);									  // KEY 2      -> (3,1).
+	NVIC_SetPriority(TIMER1_IRQn,8);				   			    // DAC        -> (4,0).
 }
-
-void config_prioridades(void)
-{
-  NVIC_SetPriority(TIMER3_IRQn,0);					// UTS
-  NVIC_SetPriority(TIMER0_IRQn,1);					// 0.5 Timer	
-  NVIC_SetPriority(EINT0_IRQn,2);	    				// KEY ISP
-  NVIC_SetPriority(EINT1_IRQn,3);						// KEY 1
-  NVIC_SetPriority(EINT2_IRQn,4);						// KEY 2
-}
-
-void EINT0_IRQHandler()
-{
-  LPC_SC->EXTINT |= (1<<0);							// Borramos flag interrupción
-  if(!flag_bloqueante)
-  {
-    switch(estado)
-    {
-      case(ST_AUTOMATICO):
-        movimiento ^= 1;
-        break;
-      case(ST_MANUAL):
-        mediciones ^= 1;			
-        break;
-    }
-    flag_bloqueante = 1;
-  }
-}
-
-void EINT1_IRQHandler()
-{
-  LPC_SC->EXTINT |= (1<<1);							// Borramos flag interrupción
-  
-  switch(estado)
-  {
-    case(ST_SETUP):
-      estado = ST_AUTOMATICO;
-      break;
-
-    case(ST_MANUAL):
-      if((!((posicion + 10) > 180)) && !(flag_bloqueante))
-      {	
-        set_servo(posicion += 10);
-        flag_bloqueante = 1;	
-      }
-      break;
-  }
-}
-
-void EINT2_IRQHandler()
-{
-  LPC_SC->EXTINT |= (1<<2);		// Borramos flag interrupción
-  if((estado == ST_MANUAL) && (!((posicion - 10) < 0)) && !(flag_bloqueante))
-  {	
-    set_servo(posicion -= 10);
-    flag_bloqueante = 1;
-  }
-}
-
-void config_timer05()
-{
-  /*
-    Configuro un timer para que salte cada 0.5 S 
-    para que interrumpa y salte el flag.
-  */
-  LPC_SC->PCONP |=(1<<1);  							// Alimento Timer 0 
-  LPC_TIM0->PR   = 0;	  								// Ponemos el prescaler a 0 
-  LPC_TIM0->MR0  = (Fpclk*0.5-1);
-  LPC_TIM0->MCR  = 3; 								// El match interrumpe, deja de contar y se reinicia a 0 el Timer Counter	
-  LPC_TIM0->TCR |= (1<<0);				  			// Que empiece a contar timer 0
-  NVIC_EnableIRQ(TIMER0_IRQn);				
-}
-
-void TIMER0_IRQHandler()
-{
-  static char sentido = POSITIVO;
-  LPC_TIM0->IR=1<<0;
-  
-  switch(estado)
-  {
-    case(ST_SETUP):
-      estado = ST_MANUAL;
-      break;
-
-    case(ST_AUTOMATICO):
-      UTS_trigger();
-      if(movimiento)
-      {	
-        if(sentido == POSITIVO)
-        {
-          if((posicion + 10) > 180)
-            sentido = NEGATIVO;	
-          
-          else
-            set_servo(posicion += 10);	
-        }
-        
-        else
-        {
-          if((posicion - 10) < 0)
-          {
-            sentido = POSITIVO;
-            set_servo(posicion += 10);
-          }
-          
-          else
-            set_servo(posicion -= 10);		
-        }
-      }
-      break;
-    case(ST_MANUAL):
-      if(mediciones)
-        UTS_trigger();
-      break;
-  }
-}
-
 
 int main(void)
 {
-  char msg [50];
-  // Configuraciones:
-  config_timer05();
-  config_botones();
+
+  // Initialize the struct:
+  sonar.state               = ST_SETUP;               // Sonar starts in Setup mode.
+  sonar.distance            = 0;							        // Sonar distancie is initialize with a zero.
+  sonar.servo_pose          = 0;                      // The servo starts at zero degrees.
+  sonar.servo_period        = 1;                      // The servo period is initialize with a period of a 0.5 seconds.
+  sonar.servo_resolution    = 10;                     // The servo resolution is initialize with a resolution of 10 degrees.
+  sonar.f_block_keys        = 0;							        // The flag f_block_keys is initialize with a zero.
+  sonar.f_block_move        = 0;							        // The flag f_block_move is initialize with a zero because at beggining 
+                                                      // of the automatic mode the servo can move.
+  sonar.f_block_measure     = 1;                      // The flag f_block_measure is initialize with one because at beggining 
+                                                      // of the manual mode the UTS can not move.	
+  sonar.f_block_transmision = 0;	                    // The flag f_block_measure is initialize with zero because at beggining 
+                                                      // the transmision from the board via uart is enable in automatic mode.
+
+	// Configure the hardware:
+  config_timer05();                                  
+  config_keys();
   config_servo();
   config_UTS();
-  config_prioridades();
-  LCD_Init();
-  LCD_Clear(Blue);
-  set_servo(0);
-  
-  sprintf(msg, "Distancia medida =  %3.2f",distancia);
-  GUI_Text(20,40,(uint8_t *)msg,White,Black);
-  GUI_Text(10,20,(uint8_t *)"Hola",Cyan,Black);
-  
-  while(1)
-    flag_bloqueante = 0;
-  
+	config_DAC();
+	config_timer_dac();
+  config_priorities();
+  LCD_Init();    
+
+  // Initialize the output 
+  // and the DAC Signal:
+  generate_samples();                                 // Generate the samples of the sinusoidal signal of the DAC               
+  LCD_Clear(Blue);                                    // Fill the screen with blue
+  set_servo(0);                                       // Initialize the servo pose
+
+  while(1)                                            // Main loop:
+	{
+    sonar.f_block_keys = 0;                           // Clear the flag that blocks keys funcionalities.
+    update_screen(&sonar);                            // Update the screen with the new status of the sonar.
+    if(sonar.state == ST_AUTOMATIC)                   // If we are in automatic mode
+      update_uart();                                  // We update the info via UART
+  }
   
 }	

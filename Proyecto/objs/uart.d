@@ -1,0 +1,12 @@
+.\objs\uart.o: modulos\uart.c
+.\objs\uart.o: modulos\uart.h
+.\objs\uart.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.h
+.\objs\uart.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cm3.h
+.\objs\uart.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\objs\uart.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmInstr.h
+.\objs\uart.o: E:\Programas\Keil\ARM\CMSIS\Include\core_cmFunc.h
+.\objs\uart.o: E:\Programas\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\objs\uart.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\objs\uart.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\string.h
+.\objs\uart.o: E:\Programas\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\objs\uart.o: modulos\state.h
